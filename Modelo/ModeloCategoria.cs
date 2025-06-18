@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Modelo
 {
-    internal class ModeloCategoria
+    public class ModeloCategoria
     {
+        private int cat_cod;
+        public int Cat_Cod;
+        { 
+            get { return this.cat_cod; }
+            set { this.cat_cod = value; }
+        }
     }
 }
