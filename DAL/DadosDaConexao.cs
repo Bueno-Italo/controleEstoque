@@ -12,7 +12,7 @@ namespace DAL
         {
             get
             {
-                return "";
+                return "Data Source=DESKTOP-UIOFKUL\\SQLEXPRESS;Integrated Security=True;Encrypt=False";
             }
         }
     }
