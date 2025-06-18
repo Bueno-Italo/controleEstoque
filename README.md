@@ -6,7 +6,7 @@ Projeto simples de controle de estoque desenvolvido em **C#**. A ideia é gerenc
 
 - 💻 C#
 - 📁 .NET (especifique a versão)
-- 🗃️ (Opcional) SQL Server / Entity Framework
+- 🗃️ SQL Server / Entity Framework
 
 ## ✨ Funcionalidades
 
@@ -15,7 +15,6 @@ Projeto simples de controle de estoque desenvolvido em **C#**. A ideia é gerenc
 - Registro de entrada e saída de estoque 🔄  
 - Relatórios de movimentação 📊  
 - Validação de dados e mensagens de erro ⚠️
-
 
 ## 🚀 Como rodar o projeto
 
@@ -35,4 +34,5 @@ dotnet build
 dotnet run
 
 📌 Status do Projeto
+
 🚧 Em desenvolvimento... novas funcionalidades em breve!
