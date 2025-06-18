@@ -5,7 +5,7 @@ Projeto simples de controle de estoque desenvolvido em **C#**. A ideia é gerenc
 ## 🧰 Tecnologias Utilizadas
 
 - 💻 C#
-- 📁 .NET (especifique a versão)
+- 📁 .NET (ex: .NET 6 ou .NET Core 3.1)
 - 🗃️ SQL Server / Entity Framework
 
 ## ✨ Funcionalidades
@@ -19,19 +19,18 @@ Projeto simples de controle de estoque desenvolvido em **C#**. A ideia é gerenc
 ## 🚀 Como rodar o projeto
 
 1. Clone este repositório:
+
    ```bash
    git clone https://github.com/Bueno-Italo/controleEstoque.git
 
-2. Abra o projeto no Visual Studio ou VS Code
+2. Abra o projeto no Visual Studio ou Visual Studio Code
 
-3. Restaure os pacotes NuGet e execute:
+3. Restaure os pacotes e execute:
 
-bash
-Copiar
-Editar
-dotnet restore
-dotnet build
-dotnet run
+      ```bash
+   dotnet restore
+   dotnet build
+   dotnet run
 
 📌 Status do Projeto
 
