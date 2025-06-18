@@ -1,0 +1,31 @@
+## Visual Studio
+.vs/
+*.user
+*.suo
+
+## Build
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+
+## Logs
+*.log
+
+## Rider / JetBrains
+.idea/
+
+## VS Code
+.vscode/
+
+## pacotes NuGet
+packages/
+*.nupkg
+*.snupkg
+
+## arquivos temporários
+*.tmp
+*.bak
+*.cache
+*.dbmdl
