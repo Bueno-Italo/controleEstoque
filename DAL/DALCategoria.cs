@@ -71,7 +71,7 @@ namespace DAL
             ModeloCategoria modelo = new ModeloCategoria();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "select * from contato where con_cod = @codigo";
+            cmd.CommandText = "select * from categoria where cat_cod = @codigo";
             cmd.Parameters.AddWithValue("@codigo", codigo);
             conexao.Conectar();
             SqlDataReader registro = cmd.ExecuteReader();
