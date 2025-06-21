@@ -21,5 +21,10 @@ namespace GUI
         {
 
         }
+
+        private void Modelo_de_Formulario_de_Cadastro_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

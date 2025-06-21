@@ -10,18 +10,16 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class Sistema_de_Controle_de_Estoque : Form
+    public partial class frmCadastroCategoria : Form
     {
-        public Sistema_de_Controle_de_Estoque()
+        public frmCadastroCategoria()
         {
             InitializeComponent();
         }
 
-        private void categoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            frmCadastroCategoria f = new frmCadastroCategoria();
-            f.ShowDialog();
-            f.Dispose();
+
         }
     }
 }

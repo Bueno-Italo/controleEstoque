@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class Modelo_de_Formulario_de_Cadastro
+    public partial class Modelo_de_Formulario_de_Cadastro : Form
     {
         /// <summary>
         /// Required designer variable.
@@ -141,7 +141,9 @@
             Controls.Add(pbBotoes);
             Controls.Add(pnDados);
             Name = "Modelo_de_Formulario_de_Cadastro";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Modelo_de_Formulario_de_Cadastro";
+            Load += Modelo_de_Formulario_de_Cadastro_Load;
             pbBotoes.ResumeLayout(false);
             ResumeLayout(false);
         }
