@@ -12,19 +12,19 @@ namespace GUI
 {
     public partial class Modelo_de_Formulario_de_Cadastro : Form
     {
-        public Modelo_de_Formulario_de_Cadastro()
+        private void button1_Click(object sender, EventArgs e)
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Modelo_de_Formulario_de_Cadastro_Load(object sender, EventArgs e)
         {
-
+            this.alteraBotoes(1);
         }
     }
 }
+/*
+public Modelo_de_Formulario_de_Cadastro()
+        {
+            InitializeComponent();
+        }*/

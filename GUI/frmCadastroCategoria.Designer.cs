@@ -142,8 +142,8 @@ namespace GUI
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "frmCadastroCategoria";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "fmCadastroCategoria";
-            Load += this.frmCadastroCategoria_Load;
             panel2.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -159,6 +159,5 @@ namespace GUI
         private Button btLocalizar;
         private Button btInserir;
 
-        public EventHandler frmCadastroCategoria_Load { get; private set; }
     }
 }

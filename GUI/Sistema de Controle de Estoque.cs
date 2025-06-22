@@ -23,5 +23,10 @@ namespace GUI
             f.ShowDialog();
             f.Dispose();
         }
+
+        private void Sistema_de_Controle_de_Estoque_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

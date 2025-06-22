@@ -2,6 +2,41 @@
 {
     public partial class Modelo_de_Formulario_de_Cadastro : Form
     {
+
+        public String operacao;
+        public Modelo_de_Formulario_de_Cadastro()
+        {
+            InitializeComponent();
+        }
+
+        public void alteraBotoes(int op)
+        {
+            pnDados.Enabled = false;
+            btInserir.Enabled = false;
+            btAlterar.Enabled = false;
+            btLocalizar.Enabled = false;
+            btExcluir.Enabled = false;
+            btCancelar.Enabled = false;
+            btSalvar.Enabled = false;
+
+            if (op == 1)
+            {
+                btInserir.Enabled = true;
+                btLocalizar.Enabled = true;
+            }
+            if (op == 2)
+            {
+                pnDados.Enabled = true;
+                btSalvar.Enabled = true;
+                btCancelar.Enabled = true;
+            }
+            if (op == 3)
+            {
+                btAlterar.Enabled = true;
+                btExcluir.Enabled = true;
+                btCancelar.Enabled = true;
+            }
+        }
         /// <summary>
         /// Required designer variable.
         /// </summary>
