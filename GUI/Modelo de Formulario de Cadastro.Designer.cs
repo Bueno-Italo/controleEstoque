@@ -177,7 +177,7 @@
             Controls.Add(pnDados);
             Name = "Modelo_de_Formulario_de_Cadastro";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Modelo_de_Formulario_de_Cadastro";
+            Text = "Cadastro de categoria";
             Load += Modelo_de_Formulario_de_Cadastro_Load;
             pbBotoes.ResumeLayout(false);
             ResumeLayout(false);

@@ -10,7 +10,39 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class Modelo_de_Formulario_de_Cadastro : Form
+    
+
+    public partial class frmCadastroCategoria : GUI.frmModeloDeFormularioDeCadastro
+    {
+        public frmCadastroCategoria()
+        {
+            InitializeComponent();
+        }
+
+        private void frmCadastroCategoria_Load(object sender, EventArgs e)
+        {
+            this.alteraBotoes(1);
+        }
+
+        private void btInserir_click(object sender, EventArgs e)
+        {
+            this.operacao = "inserir";
+            this.alteraBotoes(2);
+        }
+
+        private void alteraBotoes(int v)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
+/*
+public Modelo_de_Formulario_de_Cadastro()
+        {
+            InitializeComponent();
+        }
+
+public partial class Modelo_de_Formulario_de_Cadastro : GUI.frmModeloDeFormularioDeCadastro  Form
     {
         private void button1_Click(object sender, EventArgs e)
         {
@@ -22,9 +54,7 @@ namespace GUI
             this.alteraBotoes(1);
         }
     }
-}
-/*
-public Modelo_de_Formulario_de_Cadastro()
-        {
-            InitializeComponent();
-        }*/
+
+
+
+*/
