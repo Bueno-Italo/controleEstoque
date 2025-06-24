@@ -23,7 +23,8 @@ namespace DAL
         public String StringConexao
         {
             get { return this._stringConexao; }
-            set { this.StringConexao = value; }
+            //set { this.tringConexao = value; }
+            set { this._stringConexao = value; }
         }
 
         public SqlConnection ObjetoConexao

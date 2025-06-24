@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             pnDados = new Panel();
+            txtNome = new TextBox();
+            txtCodigo = new TextBox();
+            label2 = new Label();
+            label1 = new Label();
             pnBotoes = new Panel();
             btCancelar = new Button();
             btSalvar = new Button();
@@ -36,15 +40,54 @@
             btAlterar = new Button();
             btLocalizar = new Button();
             btInserir = new Button();
+            pnDados.SuspendLayout();
             pnBotoes.SuspendLayout();
             SuspendLayout();
             // 
             // pnDados
             // 
+            pnDados.Controls.Add(txtNome);
+            pnDados.Controls.Add(txtCodigo);
+            pnDados.Controls.Add(label2);
+            pnDados.Controls.Add(label1);
             pnDados.Location = new Point(12, 12);
             pnDados.Name = "pnDados";
             pnDados.Size = new Size(776, 328);
             pnDados.TabIndex = 0;
+            // 
+            // txtNome
+            // 
+            txtNome.Location = new Point(12, 122);
+            txtNome.Name = "txtNome";
+            txtNome.Size = new Size(747, 23);
+            txtNome.TabIndex = 3;
+            // 
+            // txtCodigo
+            // 
+            txtCodigo.Enabled = false;
+            txtCodigo.Location = new Point(12, 51);
+            txtCodigo.Name = "txtCodigo";
+            txtCodigo.Size = new Size(100, 23);
+            txtCodigo.TabIndex = 2;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(12, 90);
+            label2.Name = "label2";
+            label2.Size = new Size(40, 15);
+            label2.TabIndex = 1;
+            label2.Text = "Nome";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 24);
+            label1.Name = "label1";
+            label1.Size = new Size(46, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Código";
+            label1.Click += label1_Click;
             // 
             // pnBotoes
             // 
@@ -71,6 +114,7 @@
             btCancelar.Text = "Cancelar";
             btCancelar.TextAlign = ContentAlignment.BottomCenter;
             btCancelar.UseVisualStyleBackColor = true;
+            btCancelar.Click += btCancelar_Click;
             // 
             // btSalvar
             // 
@@ -83,6 +127,7 @@
             btSalvar.Text = "Salvar";
             btSalvar.TextAlign = ContentAlignment.BottomCenter;
             btSalvar.UseVisualStyleBackColor = true;
+            btSalvar.Click += btSalvar_Click;
             // 
             // btExcluir
             // 
@@ -133,6 +178,7 @@
             btInserir.Text = "Inserir";
             btInserir.TextAlign = ContentAlignment.BottomCenter;
             btInserir.UseVisualStyleBackColor = true;
+            btInserir.Click += btInserir_Click;
             // 
             // frmCadastroCategoria
             // 
@@ -143,8 +189,10 @@
             Controls.Add(pnDados);
             Name = "frmCadastroCategoria";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Modelo de formulário de Categoria";
+            Text = "Cadastro de categoria";
             Load += frmCadastroCategoria_Load;
+            pnDados.ResumeLayout(false);
+            pnDados.PerformLayout();
             pnBotoes.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -159,5 +207,9 @@
         private Button btInserir;
         private Button btCancelar;
         private Button btSalvar;
+        private Label label2;
+        private Label label1;
+        private TextBox txtNome;
+        private TextBox txtCodigo;
     }
 }

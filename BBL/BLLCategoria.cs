@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace BBL
 {
-    internal class BLLCategoria
+    public class BLLCategoria
     {
         private DALConexao conexao;
 

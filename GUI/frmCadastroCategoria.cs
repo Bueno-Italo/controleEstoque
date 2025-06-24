@@ -6,12 +6,17 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using System.Windows.Forms;
+using DAL;
+using Modelo;
+using BBL;
 
 namespace GUI
 {
     public partial class frmCadastroCategoria : Form
     {
+        public String operacao;
         public void alteraBotoes(int op)
         {
             // op = operaçoes que serao feitas com os botoes
@@ -50,6 +55,11 @@ namespace GUI
             InitializeComponent();
         }
 
+        public void LimpaTela()
+        {
+            txtCodigo.Clear();
+            txtNome.Clear();
+        }
         private void button3_Click(object sender, EventArgs e)
         {
 
@@ -63,6 +73,57 @@ namespace GUI
         private void frmCadastroCategoria_Load(object sender, EventArgs e)
         {
             this.alteraBotoes(1);
+        }
+
+        private void btInserir_Click(object sender, EventArgs e)
+        {
+            this.operacao = "inserir";
+            this.alteraBotoes(2);
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btCancelar_Click(object sender, EventArgs e)
+        {
+            this.alteraBotoes(1);
+            this.LimpaTela();
+        }
+
+        private void btSalvar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Leitura
+                ModeloCategoria modelo = new ModeloCategoria();
+                modelo.CatNome = txtNome.Text;
+
+                //Objeto para gravar no DB
+                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+                BLLCategoria bll = new BLLCategoria(cx);
+
+                if (this.operacao == "inserir")
+                {
+                    bll.Incluir(modelo);
+                    MessageBox.Show("Cadastro efetuado: Código " + modelo.CatCod.ToString());
+                }
+
+                else
+                {
+                    //alterar categoria
+                    modelo.CatCod = Convert.ToInt32(txtCodigo.Text);
+                    bll.Alterar(modelo);
+                    MessageBox.Show("Cadastro alterado");
+                }
+                this.LimpaTela();
+                this.alteraBotoes(1);
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
         }
     }
 }
