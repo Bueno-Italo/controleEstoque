@@ -1,7 +1,6 @@
-﻿
-namespace GUI
+﻿namespace GUI
 {
-    partial class frmCadastroCategoria
+    partial class frmModeloDeFormularioDeCadastro
     {
         /// <summary>
         /// Required designer variable.
@@ -29,44 +28,45 @@ namespace GUI
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
-            panel2 = new Panel();
+            pnDados = new Panel();
+            pnBotoes = new Panel();
             btCancelar = new Button();
             btSalvar = new Button();
             btExcluir = new Button();
             btAlterar = new Button();
             btLocalizar = new Button();
             btInserir = new Button();
-            panel2.SuspendLayout();
+            pnBotoes.SuspendLayout();
             SuspendLayout();
             // 
-            // panel1
+            // pnDados
             // 
-            panel1.Location = new Point(12, 12);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(776, 320);
-            panel1.TabIndex = 0;
+            pnDados.Location = new Point(12, 12);
+            pnDados.Name = "pnDados";
+            pnDados.Size = new Size(776, 331);
+            pnDados.TabIndex = 0;
+            pnDados.Paint += panel1_Paint;
             // 
-            // panel2
+            // pnBotoes
             // 
-            panel2.Controls.Add(btCancelar);
-            panel2.Controls.Add(btSalvar);
-            panel2.Controls.Add(btExcluir);
-            panel2.Controls.Add(btAlterar);
-            panel2.Controls.Add(btLocalizar);
-            panel2.Controls.Add(btInserir);
-            panel2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            panel2.Location = new Point(12, 338);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(776, 100);
-            panel2.TabIndex = 1;
+            pnBotoes.Controls.Add(btCancelar);
+            pnBotoes.Controls.Add(btSalvar);
+            pnBotoes.Controls.Add(btExcluir);
+            pnBotoes.Controls.Add(btAlterar);
+            pnBotoes.Controls.Add(btLocalizar);
+            pnBotoes.Controls.Add(btInserir);
+            pnBotoes.Location = new Point(12, 349);
+            pnBotoes.Name = "pnBotoes";
+            pnBotoes.Size = new Size(776, 100);
+            pnBotoes.TabIndex = 1;
             // 
             // btCancelar
             // 
+            btCancelar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btCancelar.Image = Properties.Resources.Cancelar;
-            btCancelar.Location = new Point(669, 6);
+            btCancelar.Location = new Point(673, 3);
             btCancelar.Name = "btCancelar";
-            btCancelar.Size = new Size(94, 91);
+            btCancelar.Size = new Size(99, 94);
             btCancelar.TabIndex = 5;
             btCancelar.Text = "Cancelar";
             btCancelar.TextAlign = ContentAlignment.BottomCenter;
@@ -76,21 +76,22 @@ namespace GUI
             // 
             btSalvar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btSalvar.Image = Properties.Resources.Salvar1_fw;
-            btSalvar.Location = new Point(544, 6);
+            btSalvar.Location = new Point(542, 3);
             btSalvar.Name = "btSalvar";
-            btSalvar.Size = new Size(92, 91);
+            btSalvar.Size = new Size(101, 94);
             btSalvar.TabIndex = 4;
             btSalvar.Text = "Salvar";
             btSalvar.TextAlign = ContentAlignment.BottomCenter;
             btSalvar.UseVisualStyleBackColor = true;
+            btSalvar.Click += button5_Click;
             // 
             // btExcluir
             // 
             btExcluir.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btExcluir.Image = Properties.Resources.Excluir;
-            btExcluir.Location = new Point(424, 6);
+            btExcluir.Location = new Point(401, 3);
             btExcluir.Name = "btExcluir";
-            btExcluir.Size = new Size(83, 91);
+            btExcluir.Size = new Size(107, 94);
             btExcluir.TabIndex = 3;
             btExcluir.Text = "Excluir";
             btExcluir.TextAlign = ContentAlignment.BottomCenter;
@@ -100,9 +101,9 @@ namespace GUI
             // 
             btAlterar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btAlterar.Image = Properties.Resources.Alterar;
-            btAlterar.Location = new Point(300, 6);
+            btAlterar.Location = new Point(274, 3);
             btAlterar.Name = "btAlterar";
-            btAlterar.Size = new Size(86, 91);
+            btAlterar.Size = new Size(102, 94);
             btAlterar.TabIndex = 2;
             btAlterar.Text = "Alterar";
             btAlterar.TextAlign = ContentAlignment.BottomCenter;
@@ -112,52 +113,48 @@ namespace GUI
             // 
             btLocalizar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btLocalizar.Image = Properties.Resources.localizar_fw;
-            btLocalizar.Location = new Point(163, 6);
+            btLocalizar.Location = new Point(139, 3);
             btLocalizar.Name = "btLocalizar";
-            btLocalizar.Size = new Size(89, 91);
+            btLocalizar.Size = new Size(111, 94);
             btLocalizar.TabIndex = 1;
             btLocalizar.Text = "Localizar";
             btLocalizar.TextAlign = ContentAlignment.BottomCenter;
             btLocalizar.UseVisualStyleBackColor = true;
-            btLocalizar.Click += button2_Click;
             // 
             // btInserir
             // 
-            btInserir.BackgroundImage = Properties.Resources.Novo;
-            btInserir.BackgroundImageLayout = ImageLayout.Center;
             btInserir.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btInserir.Location = new Point(28, 3);
+            btInserir.Image = Properties.Resources.Novo;
+            btInserir.Location = new Point(3, 3);
             btInserir.Name = "btInserir";
-            btInserir.Size = new Size(96, 94);
+            btInserir.Size = new Size(107, 94);
             btInserir.TabIndex = 0;
             btInserir.Text = "Inserir";
             btInserir.TextAlign = ContentAlignment.BottomCenter;
             btInserir.UseVisualStyleBackColor = true;
             // 
-            // frmCadastroCategoria
+            // frmModeloDeFormularioDeCadastro
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(panel2);
-            Controls.Add(panel1);
-            Name = "frmCadastroCategoria";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "fmCadastroCategoria";
-            panel2.ResumeLayout(false);
+            Controls.Add(pnBotoes);
+            Controls.Add(pnDados);
+            Name = "frmModeloDeFormularioDeCadastro";
+            Text = "Modelo de formulário de cadastro";
+            pnBotoes.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel panel1;
-        private Panel panel2;
+        private Panel pnDados;
+        private Panel pnBotoes;
         private Button btCancelar;
         private Button btSalvar;
         private Button btExcluir;
         private Button btAlterar;
         private Button btLocalizar;
         private Button btInserir;
-
     }
 }

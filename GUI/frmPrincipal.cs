@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class frmCadastroCategoria : Form
+    public partial class frmPrincipal : Form
     {
-        public frmCadastroCategoria()
+        public frmPrincipal()
         {
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void proToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }

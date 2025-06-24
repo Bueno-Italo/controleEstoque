@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class Sistema_de_Controle_de_Estoque
+    partial class frmPrincipal
     {
         /// <summary>
         /// Required designer variable.
@@ -30,6 +30,11 @@
         {
             menuStrip1 = new MenuStrip();
             cadastroToolStripMenuItem = new ToolStripMenuItem();
+            consultaToolStripMenuItem = new ToolStripMenuItem();
+            movimentaçãoToolStripMenuItem = new ToolStripMenuItem();
+            relatórioToolStripMenuItem = new ToolStripMenuItem();
+            ferramentasToolStripMenuItem = new ToolStripMenuItem();
+            sobreToolStripMenuItem = new ToolStripMenuItem();
             categoriaToolStripMenuItem = new ToolStripMenuItem();
             subCategoriaToolStripMenuItem = new ToolStripMenuItem();
             unidadeDeMedidaToolStripMenuItem = new ToolStripMenuItem();
@@ -37,21 +42,15 @@
             toolStripSeparator1 = new ToolStripSeparator();
             clienteToolStripMenuItem = new ToolStripMenuItem();
             fornecedorToolStripMenuItem = new ToolStripMenuItem();
-            consultaToolStripMenuItem = new ToolStripMenuItem();
-            movimentaçãoToolStripMenuItem = new ToolStripMenuItem();
-            relatórioToolStripMenuItem = new ToolStripMenuItem();
-            ferramentasToolStripMenuItem = new ToolStripMenuItem();
-            sobreToolStripMenuItem = new ToolStripMenuItem();
-            menuStrip2 = new MenuStrip();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.Items.AddRange(new ToolStripItem[] { cadastroToolStripMenuItem, consultaToolStripMenuItem, movimentaçãoToolStripMenuItem, relatórioToolStripMenuItem, ferramentasToolStripMenuItem, sobreToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 24);
+            menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 24);
+            menuStrip1.Size = new Size(784, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -61,48 +60,6 @@
             cadastroToolStripMenuItem.Name = "cadastroToolStripMenuItem";
             cadastroToolStripMenuItem.Size = new Size(66, 20);
             cadastroToolStripMenuItem.Text = "Cadastro";
-            // 
-            // categoriaToolStripMenuItem
-            // 
-            categoriaToolStripMenuItem.Name = "categoriaToolStripMenuItem";
-            categoriaToolStripMenuItem.Size = new Size(177, 22);
-            categoriaToolStripMenuItem.Text = "Categoria";
-            categoriaToolStripMenuItem.Click += categoriaToolStripMenuItem_Click;
-            // 
-            // subCategoriaToolStripMenuItem
-            // 
-            subCategoriaToolStripMenuItem.Name = "subCategoriaToolStripMenuItem";
-            subCategoriaToolStripMenuItem.Size = new Size(177, 22);
-            subCategoriaToolStripMenuItem.Text = "SubCategoria";
-            // 
-            // unidadeDeMedidaToolStripMenuItem
-            // 
-            unidadeDeMedidaToolStripMenuItem.Name = "unidadeDeMedidaToolStripMenuItem";
-            unidadeDeMedidaToolStripMenuItem.Size = new Size(177, 22);
-            unidadeDeMedidaToolStripMenuItem.Text = "Unidade de Medida";
-            // 
-            // produtoToolStripMenuItem
-            // 
-            produtoToolStripMenuItem.Name = "produtoToolStripMenuItem";
-            produtoToolStripMenuItem.Size = new Size(177, 22);
-            produtoToolStripMenuItem.Text = "Produto";
-            // 
-            // toolStripSeparator1
-            // 
-            toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(174, 6);
-            // 
-            // clienteToolStripMenuItem
-            // 
-            clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            clienteToolStripMenuItem.Size = new Size(177, 22);
-            clienteToolStripMenuItem.Text = "Cliente";
-            // 
-            // fornecedorToolStripMenuItem
-            // 
-            fornecedorToolStripMenuItem.Name = "fornecedorToolStripMenuItem";
-            fornecedorToolStripMenuItem.Size = new Size(177, 22);
-            fornecedorToolStripMenuItem.Text = "Fornecedor";
             // 
             // consultaToolStripMenuItem
             // 
@@ -134,26 +91,57 @@
             sobreToolStripMenuItem.Size = new Size(49, 20);
             sobreToolStripMenuItem.Text = "Sobre";
             // 
-            // menuStrip2
+            // categoriaToolStripMenuItem
             // 
-            menuStrip2.Location = new Point(0, 0);
-            menuStrip2.Name = "menuStrip2";
-            menuStrip2.Size = new Size(800, 24);
-            menuStrip2.TabIndex = 1;
-            menuStrip2.Text = "menuStrip2";
+            categoriaToolStripMenuItem.Name = "categoriaToolStripMenuItem";
+            categoriaToolStripMenuItem.Size = new Size(180, 22);
+            categoriaToolStripMenuItem.Text = "Categoria";
             // 
-            // Sistema_de_Controle_de_Estoque
+            // subCategoriaToolStripMenuItem
+            // 
+            subCategoriaToolStripMenuItem.Name = "subCategoriaToolStripMenuItem";
+            subCategoriaToolStripMenuItem.Size = new Size(180, 22);
+            subCategoriaToolStripMenuItem.Text = "SubCategoria";
+            // 
+            // unidadeDeMedidaToolStripMenuItem
+            // 
+            unidadeDeMedidaToolStripMenuItem.Name = "unidadeDeMedidaToolStripMenuItem";
+            unidadeDeMedidaToolStripMenuItem.Size = new Size(180, 22);
+            unidadeDeMedidaToolStripMenuItem.Text = "Unidade de Medida";
+            // 
+            // produtoToolStripMenuItem
+            // 
+            produtoToolStripMenuItem.Name = "produtoToolStripMenuItem";
+            produtoToolStripMenuItem.Size = new Size(180, 22);
+            produtoToolStripMenuItem.Text = "Produto";
+            // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(177, 6);
+            // 
+            // clienteToolStripMenuItem
+            // 
+            clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
+            clienteToolStripMenuItem.Size = new Size(180, 22);
+            clienteToolStripMenuItem.Text = "Cliente";
+            // 
+            // fornecedorToolStripMenuItem
+            // 
+            fornecedorToolStripMenuItem.Name = "fornecedorToolStripMenuItem";
+            fornecedorToolStripMenuItem.Size = new Size(180, 22);
+            fornecedorToolStripMenuItem.Text = "Fornecedor";
+            // 
+            // frmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(784, 411);
             Controls.Add(menuStrip1);
-            Controls.Add(menuStrip2);
             MainMenuStrip = menuStrip1;
-            Name = "Sistema_de_Controle_de_Estoque";
+            Name = "frmPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Sistema_de_Controle_de_Estoque";
-            Load += Sistema_de_Controle_de_Estoque_Load;
+            Text = "Sistema de Controle de Estoque";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -164,18 +152,17 @@
 
         private MenuStrip menuStrip1;
         private ToolStripMenuItem cadastroToolStripMenuItem;
+        private ToolStripMenuItem categoriaToolStripMenuItem;
+        private ToolStripMenuItem subCategoriaToolStripMenuItem;
+        private ToolStripMenuItem unidadeDeMedidaToolStripMenuItem;
         private ToolStripMenuItem consultaToolStripMenuItem;
         private ToolStripMenuItem movimentaçãoToolStripMenuItem;
         private ToolStripMenuItem relatórioToolStripMenuItem;
         private ToolStripMenuItem ferramentasToolStripMenuItem;
         private ToolStripMenuItem sobreToolStripMenuItem;
-        private ToolStripMenuItem categoriaToolStripMenuItem;
-        private ToolStripMenuItem subCategoriaToolStripMenuItem;
-        private ToolStripMenuItem unidadeDeMedidaToolStripMenuItem;
         private ToolStripMenuItem produtoToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripMenuItem clienteToolStripMenuItem;
         private ToolStripMenuItem fornecedorToolStripMenuItem;
-        private MenuStrip menuStrip2;
     }
 }
