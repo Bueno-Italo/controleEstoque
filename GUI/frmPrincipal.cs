@@ -21,5 +21,17 @@ namespace GUI
         {
 
         }
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void categoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadastroCategoria f = new frmCadastroCategoria();
+            f.ShowDialog();
+            f.Dispose();
+        }
     }
 }

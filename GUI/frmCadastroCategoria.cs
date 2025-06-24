@@ -10,10 +10,8 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class frmModeloDeFormularioDeCadastro : Form
+    public partial class frmCadastroCategoria : Form
     {
-        public String operacao;
-
         public void alteraBotoes(int op)
         {
             // op = operaçoes que serao feitas com os botoes
@@ -47,23 +45,22 @@ namespace GUI
                 btCancelar.Enabled = true;
             }
         }
-
-        public frmModeloDeFormularioDeCadastro()
+        public frmCadastroCategoria()
         {
             InitializeComponent();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void frmModeloDeFormularioDeCadastro_Load(object sender, EventArgs e)
+        private void frmCadastroCategoria_Load(object sender, EventArgs e)
         {
             this.alteraBotoes(1);
         }
