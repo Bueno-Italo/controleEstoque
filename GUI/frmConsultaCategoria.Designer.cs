@@ -73,7 +73,7 @@
             dgvDados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvDados.Size = new Size(776, 331);
             dgvDados.TabIndex = 3;
-            dgvDados.CellContentClick += dgvDados_CellContentClick;
+            //dgvDados.CellContentClick += dgvDados_CellContentClick;
             // 
             // frmConsultaCategoria
             // 
@@ -100,4 +100,6 @@
         private Button btLocalizar;
         private DataGridView dgvDados;
     }
+
+
 }

@@ -87,7 +87,7 @@
             label1.Size = new Size(46, 15);
             label1.TabIndex = 0;
             label1.Text = "Código";
-            label1.Click += label1_Click;
+            //label1.Click += label1_Click;
             // 
             // pnBotoes
             // 
@@ -140,7 +140,7 @@
             btExcluir.Text = "Excluir";
             btExcluir.TextAlign = ContentAlignment.BottomCenter;
             btExcluir.UseVisualStyleBackColor = true;
-            btExcluir.Click += button4_Click;
+            //btExcluir.Click += button4_Click;
             // 
             // btAlterar
             // 
@@ -153,7 +153,7 @@
             btAlterar.Text = "Alterar";
             btAlterar.TextAlign = ContentAlignment.BottomCenter;
             btAlterar.UseVisualStyleBackColor = true;
-            btAlterar.Click += button3_Click;
+           //btAlterar.Click += button3_Click;
             // 
             // btLocalizar
             // 
@@ -166,6 +166,7 @@
             btLocalizar.Text = "Localizar";
             btLocalizar.TextAlign = ContentAlignment.BottomCenter;
             btLocalizar.UseVisualStyleBackColor = true;
+            btLocalizar.Click += btLocalizar_Click;
             // 
             // btInserir
             // 

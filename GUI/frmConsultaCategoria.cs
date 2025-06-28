@@ -42,7 +42,7 @@ namespace GUI
             dgvDados.Columns[1].Width = 750;
         }
 
-        private void dgvDados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvDados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
