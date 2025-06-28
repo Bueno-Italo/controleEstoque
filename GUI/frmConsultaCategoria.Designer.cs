@@ -60,6 +60,7 @@
             btLocalizar.TabIndex = 2;
             btLocalizar.Text = "Localizar";
             btLocalizar.UseVisualStyleBackColor = true;
+            btLocalizar.Click += btLocalizar_Click;
             // 
             // dgvDados
             // 
@@ -72,6 +73,7 @@
             dgvDados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvDados.Size = new Size(776, 331);
             dgvDados.TabIndex = 3;
+            dgvDados.CellContentClick += dgvDados_CellContentClick;
             // 
             // frmConsultaCategoria
             // 
@@ -85,6 +87,7 @@
             Name = "frmConsultaCategoria";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Consulta Categoria";
+            Load += frmConsultaCategoria_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDados).EndInit();
             ResumeLayout(false);
             PerformLayout();
