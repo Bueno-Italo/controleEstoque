@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Modelo
 {
-    internal class ModeloSubCategoria
+    public class ModeloSubCategoria
     {
         public ModeloSubCategoria()
         {
