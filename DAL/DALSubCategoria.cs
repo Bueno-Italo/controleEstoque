@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace DAL
 {
     //internal class DALSubCategoria
-    class DALSubCategoria
+    public class DALSubCategoria
     {
         private DALConexao conexao;
         public DALSubCategoria(DALConexao cx)
@@ -121,3 +121,6 @@ namespace DAL
         }
     }
 }
+
+
+// 14 - YouTube
