@@ -75,9 +75,9 @@
             label2.AutoSize = true;
             label2.Location = new Point(12, 90);
             label2.Name = "label2";
-            label2.Size = new Size(40, 15);
+            label2.Size = new Size(110, 15);
             label2.TabIndex = 1;
-            label2.Text = "Nome";
+            label2.Text = "Nome da Categoria";
             // 
             // label1
             // 
@@ -87,7 +87,6 @@
             label1.Size = new Size(46, 15);
             label1.TabIndex = 0;
             label1.Text = "Código";
-            //label1.Click += label1_Click;
             // 
             // pnBotoes
             // 
@@ -140,7 +139,6 @@
             btExcluir.Text = "Excluir";
             btExcluir.TextAlign = ContentAlignment.BottomCenter;
             btExcluir.UseVisualStyleBackColor = true;
-            //btExcluir.Click += button4_Click;
             // 
             // btAlterar
             // 
@@ -153,7 +151,6 @@
             btAlterar.Text = "Alterar";
             btAlterar.TextAlign = ContentAlignment.BottomCenter;
             btAlterar.UseVisualStyleBackColor = true;
-           //btAlterar.Click += button3_Click;
             // 
             // btLocalizar
             // 
