@@ -119,6 +119,7 @@
             Name = "frmCadastroSubCategoria";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastro de SubCategoria";
+            Load += frmCadastroSubCategoria_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
