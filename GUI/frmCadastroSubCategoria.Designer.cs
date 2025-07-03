@@ -73,7 +73,7 @@
             txtScatCod.Name = "txtScatCod";
             txtScatCod.Size = new Size(100, 23);
             txtScatCod.TabIndex = 4;
-            txtScatCod.TextChanged += txtScatCod_TextChanged;
+           // txtScatCod.TextChanged += txtScatCod_TextChanged;
             // 
             // label3
             // 
@@ -91,7 +91,7 @@
             cbCatCod.Name = "cbCatCod";
             cbCatCod.Size = new Size(366, 23);
             cbCatCod.TabIndex = 2;
-            cbCatCod.SelectedIndexChanged += cbCatCod_SelectedIndexChanged;
+            //cbCatCod.SelectedIndexChanged += cbCatCod_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -148,7 +148,7 @@
             btSalvar.Text = "Salvar";
             btSalvar.TextAlign = ContentAlignment.BottomCenter;
             btSalvar.UseVisualStyleBackColor = true;
-            btSalvar.Click += btSalvar_Click_1;
+            //btSalvar.Click += btSalvar_Click_1;
             // 
             // btExcluir
             // 
@@ -161,7 +161,7 @@
             btExcluir.Text = "Excluir";
             btExcluir.TextAlign = ContentAlignment.BottomCenter;
             btExcluir.UseVisualStyleBackColor = true;
-            btExcluir.Click += btExcluir_Click_1;
+            //btExcluir.Click += btExcluir_Click_1;
             // 
             // btAlterar
             // 
@@ -200,7 +200,7 @@
             btInserir.Text = "Inserir";
             btInserir.TextAlign = ContentAlignment.BottomCenter;
             btInserir.UseVisualStyleBackColor = true;
-            btInserir.Click += btInserir_Click_1;
+            //btInserir.Click += btInserir_Click_1;
             // 
             // frmCadastroSubCategoria
             // 
@@ -218,7 +218,7 @@
             //ClientSize = new Size(800, 450);
             // Controls.Add(panel2);
             // Controls.Add(panel1);
-            Name = "frmCadastroSubCategoria";
+            //Name = "frmCadastroSubCategoria";
            // StartPosition = FormStartPosition.CenterScreen;
             //Text = "Cadastro de SubCategoria";
             //Load += frmCadastroSubCategoria_Load;
