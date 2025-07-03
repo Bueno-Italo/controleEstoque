@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DAL;
+using System.Data.SqlClient;
 
 namespace GUI
 {
@@ -37,6 +40,13 @@ namespace GUI
         private void categoriaToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmConsultaCategoria f = new frmConsultaCategoria();
+            f.ShowDialog();
+            f.Dispose();
+        }
+
+        private void subCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadastroSubCategoria f = new frmCadastroSubCategoria();
             f.ShowDialog();
             f.Dispose();
         }
