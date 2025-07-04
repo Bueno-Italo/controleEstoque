@@ -36,15 +36,46 @@
             label2 = new Label();
             label1 = new Label();
             panel2 = new Panel();
-            btCancelar = new Button();
-            btSalvar = new Button();
-            btExcluir = new Button();
-            btAlterar = new Button();
-            btLocalizar = new Button();
-            btInserir = new Button();
+            btSubInserir = new Button();
+            btSubLocalizar = new Button();
+            btSubAlterar = new Button();
+            btSubExcluir = new Button();
+            btSubSalvar = new Button();
+            btSubCancelar = new Button();
+            SubCodigo = new Label();
+            label5 = new Label();
+            cbSubCatCod = new ComboBox();
+            label6 = new Label();
+            txtSubScatCod = new TextBox();
+            txtSubNome = new TextBox();
+            pnDados.SuspendLayout();
+            pnBotoes.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
-//            SuspendLayout();
+            SuspendLayout();
+            // 
+            // pnDados
+            // 
+            pnDados.Controls.Add(txtSubNome);
+            pnDados.Controls.Add(txtSubScatCod);
+            pnDados.Controls.Add(label6);
+            pnDados.Controls.Add(cbSubCatCod);
+            pnDados.Controls.Add(label5);
+            pnDados.Controls.Add(SubCodigo);
+            pnDados.Location = new Point(10, 11);
+            pnDados.Size = new Size(679, 293);
+            // 
+            // pnBotoes
+            // 
+            pnBotoes.Controls.Add(btSubCancelar);
+            pnBotoes.Controls.Add(btSubSalvar);
+            pnBotoes.Controls.Add(btSubExcluir);
+            pnBotoes.Controls.Add(btSubAlterar);
+            pnBotoes.Controls.Add(btSubLocalizar);
+            pnBotoes.Controls.Add(btSubInserir);
+            pnBotoes.Location = new Point(10, 310);
+            pnBotoes.Size = new Size(679, 111);
+            pnBotoes.Paint += pnBotoes_Paint;
             // 
             // panel1
             // 
@@ -73,7 +104,6 @@
             txtScatCod.Name = "txtScatCod";
             txtScatCod.Size = new Size(100, 23);
             txtScatCod.TabIndex = 4;
-           // txtScatCod.TextChanged += txtScatCod_TextChanged;
             // 
             // label3
             // 
@@ -91,7 +121,6 @@
             cbCatCod.Name = "cbCatCod";
             cbCatCod.Size = new Size(366, 23);
             cbCatCod.TabIndex = 2;
-            //cbCatCod.SelectedIndexChanged += cbCatCod_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -124,107 +153,150 @@
             panel2.Size = new Size(776, 100);
             panel2.TabIndex = 1;
             // 
-            // btCancelar
+            // btSubInserir
             // 
-            btCancelar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btCancelar.Image = Properties.Resources.Cancelar;
-            btCancelar.Location = new Point(656, 3);
-            btCancelar.Name = "btCancelar";
-            btCancelar.Size = new Size(117, 94);
-            btCancelar.TabIndex = 5;
-            btCancelar.Text = "Cancelar";
-            btCancelar.TextAlign = ContentAlignment.BottomCenter;
-            btCancelar.UseVisualStyleBackColor = true;
-            btCancelar.Click += btCancelar_Click;
+            btSubInserir.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btSubInserir.Image = Properties.Resources.Novo;
+            btSubInserir.Location = new Point(5, 0);
+            btSubInserir.Name = "btSubInserir";
+            btSubInserir.Size = new Size(106, 99);
+            btSubInserir.TabIndex = 0;
+            btSubInserir.Text = "Inserir";
+            btSubInserir.TextAlign = ContentAlignment.BottomCenter;
+            btSubInserir.UseVisualStyleBackColor = true;
+            btSubInserir.Click += btSubInserir_Click;
             // 
-            // btSalvar
+            // btSubLocalizar
             // 
-            btSalvar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btSalvar.Image = Properties.Resources.Salvar1_fw;
-            btSalvar.Location = new Point(530, 3);
-            btSalvar.Name = "btSalvar";
-            btSalvar.Size = new Size(120, 97);
-            btSalvar.TabIndex = 4;
-            btSalvar.Text = "Salvar";
-            btSalvar.TextAlign = ContentAlignment.BottomCenter;
-            btSalvar.UseVisualStyleBackColor = true;
-            //btSalvar.Click += btSalvar_Click_1;
+            btSubLocalizar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btSubLocalizar.Image = Properties.Resources.localizar_fw;
+            btSubLocalizar.Location = new Point(117, 3);
+            btSubLocalizar.Name = "btSubLocalizar";
+            btSubLocalizar.Size = new Size(109, 96);
+            btSubLocalizar.TabIndex = 1;
+            btSubLocalizar.Text = "Localizar";
+            btSubLocalizar.TextAlign = ContentAlignment.BottomCenter;
+            btSubLocalizar.UseVisualStyleBackColor = true;
+            btSubLocalizar.Click += btSubLocalizar_Click;
             // 
-            // btExcluir
+            // btSubAlterar
             // 
-            btExcluir.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btExcluir.Image = Properties.Resources.Excluir;
-            btExcluir.Location = new Point(401, 3);
-            btExcluir.Name = "btExcluir";
-            btExcluir.Size = new Size(123, 93);
-            btExcluir.TabIndex = 3;
-            btExcluir.Text = "Excluir";
-            btExcluir.TextAlign = ContentAlignment.BottomCenter;
-            btExcluir.UseVisualStyleBackColor = true;
-            //btExcluir.Click += btExcluir_Click_1;
+            btSubAlterar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btSubAlterar.Image = Properties.Resources.Alterar;
+            btSubAlterar.Location = new Point(232, 5);
+            btSubAlterar.Name = "btSubAlterar";
+            btSubAlterar.Size = new Size(109, 94);
+            btSubAlterar.TabIndex = 2;
+            btSubAlterar.Text = "Alterar";
+            btSubAlterar.TextAlign = ContentAlignment.BottomCenter;
+            btSubAlterar.UseVisualStyleBackColor = true;
+            btSubAlterar.Click += button3_Click;
             // 
-            // btAlterar
+            // btSubExcluir
             // 
-            btAlterar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btAlterar.Image = Properties.Resources.Alterar;
-            btAlterar.Location = new Point(266, 3);
-            btAlterar.Name = "btAlterar";
-            btAlterar.Size = new Size(129, 94);
-            btAlterar.TabIndex = 2;
-            btAlterar.Text = "Alterar";
-            btAlterar.TextAlign = ContentAlignment.BottomCenter;
-            btAlterar.UseVisualStyleBackColor = true;
-            btAlterar.Click += btAlterar_Click;
+            btSubExcluir.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btSubExcluir.Image = Properties.Resources.Excluir;
+            btSubExcluir.Location = new Point(347, 5);
+            btSubExcluir.Name = "btSubExcluir";
+            btSubExcluir.Size = new Size(99, 94);
+            btSubExcluir.TabIndex = 3;
+            btSubExcluir.Text = "Excluir";
+            btSubExcluir.TextAlign = ContentAlignment.BottomCenter;
+            btSubExcluir.UseVisualStyleBackColor = true;
+            btSubExcluir.Click += btSubExcluir_Click;
             // 
-            // btLocalizar
+            // btSubSalvar
             // 
-            btLocalizar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btLocalizar.Image = Properties.Resources.localizar_fw;
-            btLocalizar.Location = new Point(133, 2);
-            btLocalizar.Name = "btLocalizar";
-            btLocalizar.Size = new Size(127, 94);
-            btLocalizar.TabIndex = 1;
-            btLocalizar.Text = "Localizar";
-            btLocalizar.TextAlign = ContentAlignment.BottomCenter;
-            btLocalizar.UseVisualStyleBackColor = true;
-            //btLocalizar.Click += btLocalizar_Click_1;
+            btSubSalvar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btSubSalvar.Image = Properties.Resources.Salvar1_fw;
+            btSubSalvar.Location = new Point(452, 3);
+            btSubSalvar.Name = "btSubSalvar";
+            btSubSalvar.RightToLeft = RightToLeft.Yes;
+            btSubSalvar.Size = new Size(102, 96);
+            btSubSalvar.TabIndex = 4;
+            btSubSalvar.Text = "Salvar";
+            btSubSalvar.TextAlign = ContentAlignment.BottomCenter;
+            btSubSalvar.UseVisualStyleBackColor = true;
+            btSubSalvar.Click += btSubSalvar_Click;
             // 
-            // btInserir
+            // btSubCancelar
             // 
-            btInserir.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btInserir.Image = Properties.Resources.Novo;
-            btInserir.Location = new Point(7, 2);
-            btInserir.Name = "btInserir";
-            btInserir.Size = new Size(120, 94);
-            btInserir.TabIndex = 0;
-            btInserir.Text = "Inserir";
-            btInserir.TextAlign = ContentAlignment.BottomCenter;
-            btInserir.UseVisualStyleBackColor = true;
-            //btInserir.Click += btInserir_Click_1;
+            btSubCancelar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btSubCancelar.Image = Properties.Resources.Cancelar;
+            btSubCancelar.Location = new Point(560, 3);
+            btSubCancelar.Name = "btSubCancelar";
+            btSubCancelar.Size = new Size(109, 96);
+            btSubCancelar.TabIndex = 5;
+            btSubCancelar.Text = "Cancelar";
+            btSubCancelar.TextAlign = ContentAlignment.BottomCenter;
+            btSubCancelar.UseVisualStyleBackColor = true;
+            btSubCancelar.Click += btSubCancelar_Click;
+            // 
+            // SubCodigo
+            // 
+            SubCodigo.AutoSize = true;
+            SubCodigo.Location = new Point(20, 20);
+            SubCodigo.Name = "SubCodigo";
+            SubCodigo.Size = new Size(46, 15);
+            SubCodigo.TabIndex = 0;
+            SubCodigo.Text = "Código";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(20, 77);
+            label5.Name = "label5";
+            label5.Size = new Size(130, 15);
+            label5.TabIndex = 1;
+            label5.Text = "Nome da SubCategoria";
+            label5.Click += label5_Click;
+            // 
+            // cbSubCatCod
+            // 
+            cbSubCatCod.FormattingEnabled = true;
+            cbSubCatCod.Location = new Point(20, 152);
+            cbSubCatCod.Name = "cbSubCatCod";
+            cbSubCatCod.Size = new Size(321, 23);
+            cbSubCatCod.TabIndex = 2;
+            cbSubCatCod.SelectedIndexChanged += cbSubCatCod_SelectedIndexChanged;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(20, 134);
+            label6.Name = "label6";
+            label6.Size = new Size(110, 15);
+            label6.TabIndex = 3;
+            label6.Text = "Nome da Categoria";
+            // 
+            // txtSubScatCod
+            // 
+            txtSubScatCod.Location = new Point(20, 38);
+            txtSubScatCod.Name = "txtSubScatCod";
+            txtSubScatCod.Size = new Size(106, 23);
+            txtSubScatCod.TabIndex = 4;
+            // 
+            // txtSubNome
+            // 
+            txtSubNome.Location = new Point(20, 95);
+            txtSubNome.Name = "txtSubNome";
+            txtSubNome.Size = new Size(583, 23);
+            txtSubNome.TabIndex = 5;
             // 
             // frmCadastroSubCategoria
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(782, 553);
-            this.Name = "frmCadastroSubCategoria";
-            this.Text = "Cadastro de SubCategoria";
-            this.Load += new System.EventHandler(this.frmCadastroSubCategoria_Load);
-            this.pnDados.ResumeLayout(false);
-            this.pnDados.PerformLayout();
-            this.pnBotoes.ResumeLayout(false);
-            this.ResumeLayout(false);
-            //AutoScaleDimensions = new SizeF(7F, 15F);
-            //AutoScaleMode = AutoScaleMode.Font;
-            //ClientSize = new Size(800, 450);
-            // Controls.Add(panel2);
-            // Controls.Add(panel1);
-            //Name = "frmCadastroSubCategoria";
-           // StartPosition = FormStartPosition.CenterScreen;
-            //Text = "Cadastro de SubCategoria";
-            //Load += frmCadastroSubCategoria_Load;
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            ClientSize = new Size(703, 429);
+            Name = "frmCadastroSubCategoria";
+            Text = "Cadastro de SubCategoria";
+            Load += frmCadastroSubCategoria_Load;
+            pnDados.ResumeLayout(false);
+            pnDados.PerformLayout();
+            pnBotoes.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
+            ResumeLayout(false);
             //ResumeLayout(false);
         }
 
@@ -246,5 +318,17 @@
         private Button btCancelar;
         private Button txtCodigo;
         private System.Windows.Forms.Button btAdd;
+        private Button btSubInserir;
+        private Button btSubCancelar;
+        private Button btSubSalvar;
+        private Button btSubExcluir;
+        private Button btSubAlterar;
+        private Button btSubLocalizar;
+        private TextBox txtSubScatCod;
+        private Label label6;
+        private ComboBox cbSubCatCod;
+        private Label label5;
+        private Label SubCodigo;
+        private TextBox txtSubNome;
     }
 }
