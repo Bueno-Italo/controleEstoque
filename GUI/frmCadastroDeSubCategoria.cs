@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BBL;
+using DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,13 +21,25 @@ namespace GUI
 
         public void LimpaTela()
         {
-            // txtNome.Clear();
-            // txtScatCod.Clear();
+            txtNome.Clear();
+            txtScatCod.Clear();
+        }
+
+        private void frmCadastroDeSubCategoria_Load(object sender, EventArgs e)
+        {
+            this.alteraBotoes(1);
+            DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+            BLLCategoria bll = new BLLCategoria(cx);
+            cbCatCod.DataSource = bll.Localizar("");
+            cbCatCod.DisplayMember = "cat_nome";
+            cbCatCod.ValueMember = "cat_cod";
         }
 
         private void btInserir_Click(object sender, EventArgs e)
         {
-
+            this.alteraBotoes(2);
+            this.operacao = "inserir";
         }
+
     }
 }
