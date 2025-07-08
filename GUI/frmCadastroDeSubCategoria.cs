@@ -1,5 +1,6 @@
 ﻿using BBL;
 using DAL;
+using Modelo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,5 +42,96 @@ namespace GUI
             this.operacao = "inserir";
         }
 
+        private void btCancelar_Click(object sender, EventArgs e)
+        {
+            this.alteraBotoes(1);
+            this.LimpaTela();
+        }
+
+        private void btAlterar_Click(object sender, EventArgs e)
+        {
+            alteraBotoes(2);
+            this.operacao = "alterar";
+        }
+
+        private void btSalvar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Leitura
+                ModeloSubCategoria modelo = new ModeloSubCategoria();
+                modelo.ScatNome = txtNome.Text;
+                modelo.CatCod = Convert.ToInt32(cbCatCod.SelectedValue);
+
+                //Objeto para gravar no DB
+                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+                BLLSubCategoria bll = new BLLSubCategoria(cx);
+
+                if (this.operacao == "inserir")
+                {
+                    bll.Incluir(modelo);
+                    MessageBox.Show("Cadastro efetuado: Código " + modelo.ScatCod.ToString());
+                }
+
+                else
+                {
+                    //alterar categoria
+                    modelo.ScatCod = Convert.ToInt32(txtScatCod.Text);
+                    bll.Alterar(modelo);
+                    MessageBox.Show("Cadastro alterado");
+                }
+                this.LimpaTela();
+                this.alteraBotoes(1);
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
+
+        private void btExcluir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult d = MessageBox.Show("Deseja excluir o registro?", "Aviso", MessageBoxButtons.YesNo);
+                if (d.ToString() == "Yes")
+                {
+                    DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+                    BLLSubCategoria bll = new BLLSubCategoria(cx);
+                    bll.Excluir(Convert.ToInt32(txtScatCod.Text));
+                    this.LimpaTela();
+                    this.alteraBotoes(1);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Impossivel excluir o registro. \n O registro esta sendo utilizado em outro local.");
+                this.alteraBotoes(3);
+            }
+        }
+
+        private void btLocalizar_Click(object sender, EventArgs e)
+        {
+            /* 
+            frmConsultaCategoria f = new frmConsultaCategoria();
+            f.ShowDialog();
+
+            if (f.codigo != 0)
+            {
+                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+                BLLCategoria bll = new BLLCategoria(cx);
+                ModeloCategoria modelo = bll.CarregaModeloCategoria(f.codigo);
+                txtCodigo.Text = modelo.CatCod.ToString();
+                txtNome.Text = modelo.CatNome;
+                alteraBotoes(3);
+            }
+            else
+            {
+                this.LimpaTela();
+                this.alteraBotoes(1);
+            }
+            f.Dispose();
+            */
+        }
     }
 }

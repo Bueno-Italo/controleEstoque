@@ -47,6 +47,26 @@
             pnDados.Controls.Add(label2);
             pnDados.Controls.Add(label1);
             // 
+            // btCancelar
+            // 
+            btCancelar.Click += btCancelar_Click;
+            // 
+            // btSalvar
+            // 
+            btSalvar.Click += btSalvar_Click;
+            // 
+            // btExcluir
+            // 
+            btExcluir.Click += btExcluir_Click;
+            // 
+            // btAlterar
+            // 
+            btAlterar.Click += btAlterar_Click;
+            // 
+            // btLocalizar
+            // 
+            btLocalizar.Click += btLocalizar_Click;
+            // 
             // btInserir
             // 
             btInserir.Click += btInserir_Click;

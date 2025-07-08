@@ -139,6 +139,7 @@
             btExcluir.Text = "Excluir";
             btExcluir.TextAlign = ContentAlignment.BottomCenter;
             btExcluir.UseVisualStyleBackColor = true;
+            btExcluir.Click += btExcluir_Click_1;
             // 
             // btAlterar
             // 
@@ -151,6 +152,7 @@
             btAlterar.Text = "Alterar";
             btAlterar.TextAlign = ContentAlignment.BottomCenter;
             btAlterar.UseVisualStyleBackColor = true;
+            btAlterar.Click += btAlterar_Click_1;
             // 
             // btLocalizar
             // 
