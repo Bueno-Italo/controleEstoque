@@ -12,8 +12,12 @@ namespace DAL
         {
             get
             {
-                return "Data Source=DESKTOP-UIOFKUL\\SQLEXPRESS;Integrated Security=True;Encrypt=False";
+                return "Data Source=DESKTOP-UIOFKUL\\SQLEXPRESS;Initial Catalog=ControleDeEstoque;Integrated Security=True;TrustServerCertificate=True;";
+
+                // return "Data Source=DESKTOP-UIOFKUL\\SQLEXPRESS;Integrated Security=True;Encrypt=False";
+
+                //return "Data Source=localhost;Initial Catalog=controleestoque;User ID=sa;Password=Senha123";
             }
-        }
+}
     }
 }
