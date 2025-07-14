@@ -30,7 +30,7 @@ namespace GUI
         {
             this.alteraBotoes(1);
             DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-            BLLCategoria bll = new BLLCategoria(cx);
+            BLLSubCategoria bll = new BLLSubCategoria(cx);
             cbCatCod.DataSource = bll.Localizar("");
             cbCatCod.DisplayMember = "cat_nome";
             cbCatCod.ValueMember = "cat_cod";
@@ -110,28 +110,49 @@ namespace GUI
             }
         }
 
-        private void btLocalizar_Click(object sender, EventArgs e)
-        {
-            /* 
-            frmConsultaCategoria f = new frmConsultaCategoria();
-            f.ShowDialog();
+        //private void btLocalizar_Click(object sender, EventArgs e)
+        //{
+        //    frmConsultaSubCategoria f = new frmConsultaSubCategoria();
+        //    f.ShowDialog();
 
-            if (f.codigo != 0)
-            {
-                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-                BLLCategoria bll = new BLLCategoria(cx);
-                ModeloCategoria modelo = bll.CarregaModeloCategoria(f.codigo);
-                txtCodigo.Text = modelo.CatCod.ToString();
-                txtNome.Text = modelo.CatNome;
-                alteraBotoes(3);
-            }
-            else
-            {
-                this.LimpaTela();
-                this.alteraBotoes(1);
-            }
+        //    if (f.codigo != 0)
+        //    {
+        //        DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+        //        BLLSubCategoria bll = new BLLSubCategoria(cx);
+        //        ModeloSubCategoria modelo = bll.CarregaModeloSubCategoria(f.codigo);
+        //        txtScatCod.Text = modelo.ScatCod.ToString();
+        //        txtNome.Text = modelo.ScatNome;
+        //        cbCatCod.SelectedValue = modelo.CatCod;
+        //        alteraBotoes(3);
+        //    }
+        //    else
+        //    {
+        //        this.LimpaTela();
+        //        this.alteraBotoes(1);
+        //    }
+        //    f.Dispose();
+        //}
+
+        private void cbCatCod_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            frmCadastroCategoria f = new frmCadastroCategoria();
+            f.ShowDialog();
             f.Dispose();
-            */
+            DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+            BLLCategoria bll = new BLLCategoria(cx);
+            cbCatCod.DataSource = bll.Localizar("");
+            cbCatCod.DisplayMember = "cat_nome";
+            cbCatCod.ValueMember = "cat_cod";
+        }
+
+        private void txtNome_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtScatCod_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

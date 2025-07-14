@@ -65,7 +65,7 @@
             // 
             // btLocalizar
             // 
-            btLocalizar.Click += btLocalizar_Click;
+            //btLocalizar.Click += btLocalizar_Click;
             // 
             // btInserir
             // 
@@ -96,6 +96,7 @@
             cbCatCod.Name = "cbCatCod";
             cbCatCod.Size = new Size(360, 23);
             cbCatCod.TabIndex = 2;
+            cbCatCod.SelectedIndexChanged += cbCatCod_SelectedIndexChanged;
             // 
             // label3
             // 
@@ -113,6 +114,7 @@
             txtScatCod.Name = "txtScatCod";
             txtScatCod.Size = new Size(115, 23);
             txtScatCod.TabIndex = 4;
+            txtScatCod.TextChanged += txtScatCod_TextChanged;
             // 
             // txtNome
             // 
@@ -120,6 +122,7 @@
             txtNome.Name = "txtNome";
             txtNome.Size = new Size(722, 23);
             txtNome.TabIndex = 5;
+            txtNome.TextChanged += txtNome_TextChanged;
             // 
             // frmCadastroDeSubCategoria
             // 

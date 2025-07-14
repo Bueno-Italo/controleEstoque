@@ -29,7 +29,7 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@catcod", modelo.CatCod);
                 cmd.Parameters.AddWithValue("@nome", modelo.ScatNome);
                 conexao.Conectar();
-                modelo.CatCod = Convert.ToInt32(cmd.ExecuteScalar());
+                modelo.ScatCod = Convert.ToInt32(cmd.ExecuteScalar());
             }
             catch (Exception erro)
             {
