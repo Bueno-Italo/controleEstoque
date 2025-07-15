@@ -65,7 +65,7 @@
             // 
             // btLocalizar
             // 
-            //btLocalizar.Click += btLocalizar_Click;
+            btLocalizar.Click += btLocalizar_Click_1;
             // 
             // btInserir
             // 
