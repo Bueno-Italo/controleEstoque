@@ -30,7 +30,8 @@ namespace GUI
         {
             this.alteraBotoes(1);
             DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-            BLLSubCategoria bll = new BLLSubCategoria(cx);
+            //BLLSubCategoria bll = new BLLSubCategoria(cx); //Entra form Cadastro SUBCAT
+            BLLCategoria bll = new BLLCategoria(cx); //De acordo com origin
             cbCatCod.DataSource = bll.Localizar("");
             cbCatCod.DisplayMember = "cat_nome";
             cbCatCod.ValueMember = "cat_cod";
@@ -59,7 +60,8 @@ namespace GUI
             try
             {
                 //Leitura
-                ModeloSubCategoria modelo = new ModeloSubCategoria();
+                ModeloSubCategoria modelo = new ModeloSubCategoria();//origin
+                //ModeloDeSubCategoria modelo = new ModeloDeSubCategoria();
                 modelo.ScatNome = txtNome.Text;
                 modelo.CatCod = Convert.ToInt32(cbCatCod.SelectedValue);
 
@@ -110,39 +112,17 @@ namespace GUI
             }
         }
 
-        private void btLocalizar_Click(object sender, EventArgs e)
-        {
-            //frmConsultaSubCategoria f = new frmConsultaSubCategoria();
-            //f.ShowDialog();
-
-            //if (f.codigo != 0)
-            //{
-            //    DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-            //    BLLSubCategoria bll = new BLLSubCategoria(cx);
-            //    ModeloSubCategoria modelo = bll.CarregaModeloSubCategoria(f.codigo);
-            //    txtScatCod.Text = modelo.ScatCod.ToString();
-            //    txtNome.Text = modelo.ScatNome;
-            //    cbCatCod.SelectedValue = modelo.CatCod;
-            //    alteraBotoes(3);
-            //}
-            //else
-            //{
-            //    this.LimpaTela();
-            //    this.alteraBotoes(1);
-            //}
-            //f.Dispose();
-        }
-
         private void cbCatCod_SelectedIndexChanged(object sender, EventArgs e)
         {
-            frmCadastroCategoria f = new frmCadastroCategoria();
-            f.ShowDialog();
-            f.Dispose();
-            DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-            BLLSubCategoria bll = new BLLSubCategoria(cx);
-            cbCatCod.DataSource = bll.Localizar("");
-            cbCatCod.DisplayMember = "cat_nome";
-            cbCatCod.ValueMember = "cat_cod";
+            //frmCadastroCategoria f = new frmCadastroCategoria();
+            //frmCadastroDeSubCategoria f = new frmCadastroDeSubCategoria();
+            //f.ShowDialog();
+            //f.Dispose();
+            //DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+            //BLLCategoria bll = new BLLCategoria(cx);
+            //cbCatCod.DataSource = bll.Localizar("");
+            //cbCatCod.DisplayMember = "cat_nome";
+            //cbCatCod.ValueMember = "cat_cod";
         }
 
         private void txtNome_TextChanged(object sender, EventArgs e)
@@ -163,6 +143,7 @@ namespace GUI
             if (f.codigo != 0)
             {
                 DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+                //BLLSubCategoria bll = new BLLSubCategoria(cx);
                 BLLSubCategoria bll = new BLLSubCategoria(cx);
                 ModeloSubCategoria modelo = bll.CarregaModeloSubCategoria(f.codigo);
                 txtScatCod.Text = modelo.ScatCod.ToString();
