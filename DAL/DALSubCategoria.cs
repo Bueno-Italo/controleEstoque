@@ -25,7 +25,7 @@ namespace DAL
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conexao.ObjetoConexao;
-                cmd.CommandText = "insert into subcategoria(cat_cod, scat_nome) values (@catocod, @nome); select @@IDENTITY;";
+                cmd.CommandText = "insert into subcategoria(cat_cod, scat_nome) values (@catcod, @nome); select @@IDENTITY;";
                 cmd.Parameters.AddWithValue("@catcod", modelo.CatCod);
                 cmd.Parameters.AddWithValue("@nome", modelo.ScatNome);
                 conexao.Conectar();
@@ -121,6 +121,3 @@ namespace DAL
         }
     }
 }
-
-
-// 14 - YouTube

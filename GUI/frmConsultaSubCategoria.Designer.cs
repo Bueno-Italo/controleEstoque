@@ -65,6 +65,7 @@
             txtValor.Name = "txtValor";
             txtValor.Size = new Size(669, 23);
             txtValor.TabIndex = 5;
+            txtValor.TextChanged += txtValor_TextChanged;
             // 
             // label1
             // 

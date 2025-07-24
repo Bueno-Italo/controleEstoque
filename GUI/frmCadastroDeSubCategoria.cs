@@ -30,8 +30,7 @@ namespace GUI
         {
             this.alteraBotoes(1);
             DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-            //BLLSubCategoria bll = new BLLSubCategoria(cx); //Entra form Cadastro SUBCAT
-            BLLCategoria bll = new BLLCategoria(cx); //De acordo com origin
+            BLLCategoria bll = new BLLCategoria(cx);
             cbCatCod.DataSource = bll.Localizar("");
             cbCatCod.DisplayMember = "cat_nome";
             cbCatCod.ValueMember = "cat_cod";
@@ -71,8 +70,10 @@ namespace GUI
 
                 if (this.operacao == "inserir")
                 {
+                    //cadastrar uma categoria
                     bll.Incluir(modelo);
                     MessageBox.Show("Cadastro efetuado: Código " + modelo.ScatCod.ToString());
+                    //MessageBox.Show("ERRO ao cadastrar" + modelo.ScatCod.ToString());
                 }
 
                 else
@@ -143,7 +144,6 @@ namespace GUI
             if (f.codigo != 0)
             {
                 DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-                //BLLSubCategoria bll = new BLLSubCategoria(cx);
                 BLLSubCategoria bll = new BLLSubCategoria(cx);
                 ModeloSubCategoria modelo = bll.CarregaModeloSubCategoria(f.codigo);
                 txtScatCod.Text = modelo.ScatCod.ToString();
