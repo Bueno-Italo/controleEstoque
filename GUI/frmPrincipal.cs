@@ -50,5 +50,12 @@ namespace GUI
             f.ShowDialog();
             f.Dispose();
         }
+
+        private void subCategoriaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmConsultaSubCategoria f = new frmConsultaSubCategoria();
+            f.ShowDialog();
+            f.Dispose();
+        }
     }
 }

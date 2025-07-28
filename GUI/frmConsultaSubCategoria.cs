@@ -31,11 +31,13 @@ namespace GUI
         {
             btLocalizar_Click(sender, e);
             dgvDados.Columns[0].HeaderText = "Código da SubCategoria";
-            dgvDados.Columns[0].Width = 90;
+            dgvDados.Columns[0].Width = 100;
             dgvDados.Columns[1].HeaderText = "SubCategoria";
-            dgvDados.Columns[1].Width = 600;
+            dgvDados.Columns[1].Width = 300;
             dgvDados.Columns[2].HeaderText = "Código da SubCategoria";
-            dgvDados.Columns[2].Width = 90;
+            dgvDados.Columns[2].Width = 100;
+            dgvDados.Columns[3].HeaderText = "Categoria";
+            dgvDados.Columns[3].Width = 300;
         }
 
         private void dgvDados_CellContentClick(object sender, DataGridViewCellEventArgs e)

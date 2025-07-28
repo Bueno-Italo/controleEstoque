@@ -48,7 +48,7 @@ namespace DAL
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conexao.ObjetoConexao;
-                cmd.CommandText = "update subcategoria set scat_nome = @nome, cat_cod = @catcode where scat_cod = @scatcod;";
+                cmd.CommandText = "update subcategoria set scat_nome = @nome, cat_cod = @catcod where scat_cod = @scatcod;";
                 cmd.Parameters.AddWithValue("@nome", modelo.ScatNome);
                 cmd.Parameters.AddWithValue("@catcod", modelo.CatCod);
                 cmd.Parameters.AddWithValue("@scatcod", modelo.ScatCod);
@@ -92,8 +92,9 @@ namespace DAL
         public DataTable Localizar(String valor)
         {
             DataTable tabela = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("Select * from subcategoria where scat_nome like '%" +
-               valor + "%'", conexao.StringConexao);
+            SqlDataAdapter da = new SqlDataAdapter("select sc.scat_cod, sc.scat_nome, sc.cat_cod, c.cat_nome " +
+                " from subcategoria sc inner join categoria c on sc.cat_cod = c.cat_cod where scat_nome like '%" +
+                valor + "%'", conexao.StringConexao);
             da.Fill(tabela);
             return tabela;
         }
