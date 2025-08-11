@@ -95,7 +95,7 @@ namespace DAL
         }
 
         //Informações de um registro no DB e preencher objeto
-        public ModeloUnidadeDeMedida CarregaModeloSubCategoria(int codigo)
+        public ModeloUnidadeDeMedida CarregaModeloUnidadeDeMedida(int codigo)
         {
             ModeloUnidadeDeMedida modelo = new ModeloUnidadeDeMedida();
             SqlCommand cmd = new SqlCommand();
