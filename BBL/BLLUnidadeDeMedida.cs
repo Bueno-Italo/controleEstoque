@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BBL
 {
-    internal class BLLUnidadeDeMedida
+    public class BLLUnidadeDeMedida
     {
         private DALConexao conexao;
 
