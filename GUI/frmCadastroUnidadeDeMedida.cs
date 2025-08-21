@@ -100,24 +100,24 @@ namespace GUI
 
         private void btLocalizar_Click(object sender, EventArgs e)
         {
-            //frmConsultaCategoria f = new frmConsultaCategoria();
-            //f.ShowDialog();
+            frmConsultaUnidadeDeMedida f = new frmConsultaUnidadeDeMedida();
+            f.ShowDialog();
 
-            //if (f.codigo != 0)
-            //{
-            //    DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-            //    BLLCategoria bll = new BLLCategoria(cx);
-            //    ModeloCategoria modelo = bll.CarregaModeloCategoria(f.codigo);
-            //    txtCodigo.Text = modelo.CatCod.ToString();
-            //    txtNome.Text = modelo.CatNome;
-            //    alteraBotoes(3);
-            //}
-            //else
-            //{
-            //    this.LimpaTela();
-            //    this.alteraBotoes(1);
-            //}
-            //f.Dispose()
+            if (f.codigo != 0)
+            {
+                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+                BLLUnidadeDeMedida bll = new BLLUnidadeDeMedida(cx);
+                ModeloUnidadeDeMedida modelo = bll.CarregaModeloUnidadeDeMedida(f.codigo);
+                txtCod.Text = modelo.UmedCod.ToString();
+                txtUnidadeMedida.Text = modelo.UmedNome;
+                alteraBotoes(3);
+            }
+            else
+            {
+                this.LimpaTela();
+                this.alteraBotoes(1);
+            }
+            f.Dispose();
         }
     }
 }

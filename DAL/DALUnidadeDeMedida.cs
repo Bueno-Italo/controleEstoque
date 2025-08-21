@@ -45,7 +45,7 @@ namespace DAL
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conexao.ObjetoConexao;
-                cmd.CommandText = "update undmedida umed_nome = @nome where umed_cod = @cod;";
+                cmd.CommandText = "update undmedida set umed_nome = @nome where umed_cod = @cod;";
                 cmd.Parameters.AddWithValue("@nome", modelo.UmedNome);
                 cmd.Parameters.AddWithValue("@cod", modelo.UmedCod);
                 conexao.Conectar();
