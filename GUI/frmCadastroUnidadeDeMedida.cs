@@ -119,5 +119,36 @@ namespace GUI
             }
             f.Dispose();
         }
+
+        private void txtUnidadeMedida_Leave(object sender, EventArgs e)
+        {
+            if(this.operacao == "inserir")
+            {
+                int r = 0;
+                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+                BLLUnidadeDeMedida bll = new BLLUnidadeDeMedida(cx);
+                r = bll.VerificaUnidadeDeMedida(txtUnidadeMedida.Text);
+                if (r > 0)
+                {
+                    try
+                    {
+                        DialogResult d = MessageBox.Show("Já existe um  registro com esse valor! Deseja alterar o registro?", "Aviso", MessageBoxButtons.YesNo);
+                        if (d.ToString() == "Yes")
+                        {
+                            this.operacao = "alterar";
+                            ModeloUnidadeDeMedida modelo = bll.CarregaModeloUnidadeDeMedida(r);
+                            txtCod.Text = modelo.UmedCod.ToString();
+                            txtUnidadeMedida.Text = modelo.UmedNome;
+                            //alteraBotoes(3);
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Impossivel excluir o registro. \n O registro esta sendo utilizado em outro local.");
+                        this.alteraBotoes(3);
+                    }
+                }
+            }
+        }
     }
 }

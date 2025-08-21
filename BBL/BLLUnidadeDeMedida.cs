@@ -50,11 +50,16 @@ namespace BBL
             DALobj.Excluir(codigo);
         }
 
-
         public DataTable Localizar(String valor)
         {
             DALUnidadeDeMedida DALobj = new DALUnidadeDeMedida(conexao);
             return DALobj.Localizar(valor);
+        }
+
+        public int  VerificaUnidadeDeMedida(String valor)
+        {
+            DALUnidadeDeMedida DALobj = new DALUnidadeDeMedida(conexao);
+            return DALobj.VerificaUnidadeDeMedida(valor);
         }
 
         public ModeloUnidadeDeMedida CarregaModeloUnidadeDeMedida(int codigo)

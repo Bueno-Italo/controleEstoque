@@ -99,6 +99,7 @@
             txtUnidadeMedida.Name = "txtUnidadeMedida";
             txtUnidadeMedida.Size = new Size(735, 23);
             txtUnidadeMedida.TabIndex = 3;
+            txtUnidadeMedida.Leave += txtUnidadeMedida_Leave;
             // 
             // frmCadastroUnidadeDeMedida
             // 

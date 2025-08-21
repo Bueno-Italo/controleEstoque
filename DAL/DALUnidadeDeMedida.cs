@@ -93,7 +93,23 @@ namespace DAL
             da.Fill(tabela);
             return tabela;
         }
-
+        public int  VerificaUnidadeDeMedida(String valor)
+        {
+            int r = 0; //0 - não existe
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = "select * from undmedida where umed_nome = @nome";
+            cmd.Parameters.AddWithValue("@nome", valor);
+            conexao.Conectar();
+            SqlDataReader registro = cmd.ExecuteReader();
+            if (registro.HasRows)
+            {
+                registro.Read();
+                r = Convert.ToInt32(registro["umed_cod"]);
+            }
+            conexao.Desconectar();
+            return r;
+        }
         //Informações de um registro no DB e preencher objeto
         public ModeloUnidadeDeMedida CarregaModeloUnidadeDeMedida(int codigo)
         {
@@ -110,6 +126,7 @@ namespace DAL
                 modelo.UmedCod = Convert.ToInt32(registro["umed_cod"]);
                 modelo.UmedNome = Convert.ToString(registro["umed_nome"]);
             }
+            registro.Close();
             conexao.Desconectar();
             return modelo;
         }
