@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class frmConsultaCategoria
+    partial class frmConsultaUnidadeDeMedida
     {
         /// <summary>
         /// Required designer variable.
@@ -28,55 +28,53 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            txtValor = new TextBox();
-            btLocalizar = new Button();
             dgvDados = new DataGridView();
+            btLocalizar = new Button();
+            txtValor = new TextBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvDados).BeginInit();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 23);
-            label1.Name = "label1";
-            label1.Size = new Size(58, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Categoria";
-            //label1.Click += this.label1_Click;
-            // 
-            // txtValor
-            // 
-            txtValor.Location = new Point(12, 51);
-            txtValor.Name = "txtValor";
-            txtValor.Size = new Size(669, 23);
-            txtValor.TabIndex = 1;
-            txtValor.TextChanged += textBox1_TextChanged;
-            // 
-            // btLocalizar
-            // 
-            btLocalizar.Location = new Point(700, 51);
-            btLocalizar.Name = "btLocalizar";
-            btLocalizar.Size = new Size(88, 23);
-            btLocalizar.TabIndex = 2;
-            btLocalizar.Text = "Localizar";
-            btLocalizar.UseVisualStyleBackColor = true;
-            btLocalizar.Click += btLocalizar_Click;
             // 
             // dgvDados
             // 
             dgvDados.AllowUserToAddRows = false;
             dgvDados.AllowUserToDeleteRows = false;
             dgvDados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDados.Location = new Point(12, 107);
+            dgvDados.Location = new Point(12, 102);
             dgvDados.Name = "dgvDados";
             dgvDados.ReadOnly = true;
             dgvDados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvDados.Size = new Size(776, 331);
-            dgvDados.TabIndex = 3;
-            dgvDados.CellContentClick += dgvDados_CellContentClick;
+            dgvDados.TabIndex = 7;
+            dgvDados.CellDoubleClick += dgvDados_CellDoubleClick;
             // 
-            // frmConsultaCategoria
+            // btLocalizar
+            // 
+            btLocalizar.Location = new Point(700, 46);
+            btLocalizar.Name = "btLocalizar";
+            btLocalizar.Size = new Size(88, 23);
+            btLocalizar.TabIndex = 6;
+            btLocalizar.Text = "Localizar";
+            btLocalizar.UseVisualStyleBackColor = true;
+            btLocalizar.Click += btLocalizar_Click;
+            // 
+            // txtValor
+            // 
+            txtValor.Location = new Point(12, 46);
+            txtValor.Name = "txtValor";
+            txtValor.Size = new Size(669, 23);
+            txtValor.TabIndex = 5;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 18);
+            label1.Name = "label1";
+            label1.Size = new Size(110, 15);
+            label1.TabIndex = 4;
+            label1.Text = "Unidade de medida";
+            // 
+            // frmConsultaUnidadeDeMedida
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -85,10 +83,10 @@
             Controls.Add(btLocalizar);
             Controls.Add(txtValor);
             Controls.Add(label1);
-            Name = "frmConsultaCategoria";
+            Name = "frmConsultaUnidadeDeMedida";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Consulta Categoria";
-            Load += frmConsultaCategoria_Load;
+            Text = "Consulta Unidade de Medida";
+            Load += frmConsultaUnidadeDeMedida_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDados).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -96,11 +94,9 @@
 
         #endregion
 
-        private Label label1;
-        private TextBox txtValor;
-        private Button btLocalizar;
         private DataGridView dgvDados;
+        private Button btLocalizar;
+        private TextBox txtValor;
+        private Label label1;
     }
-
-
 }

@@ -12,33 +12,27 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class frmConsultaCategoria : Form
+    public partial class frmConsultaUnidadeDeMedida : Form
     {
         public int codigo = 0;
-
-        public frmConsultaCategoria()
+        public frmConsultaUnidadeDeMedida()
         {
             InitializeComponent();
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btLocalizar_Click(object sender, EventArgs e)
         {
             DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-            BLLCategoria bll = new BLLCategoria(cx);
+            BLLUnidadeDeMedida bll = new BLLUnidadeDeMedida(cx);
             dgvDados.DataSource = bll.Localizar(txtValor.Text);
         }
 
-        private void frmConsultaCategoria_Load(object sender, EventArgs e)
+        private void frmConsultaUnidadeDeMedida_Load(object sender, EventArgs e)
         {
             btLocalizar_Click(sender, e);
             dgvDados.Columns[0].HeaderText = "Código";
             dgvDados.Columns[0].Width = 70;
-            dgvDados.Columns[1].HeaderText = "Categoria";
+            dgvDados.Columns[1].HeaderText = "Unidade de medida";
             dgvDados.Columns[1].Width = 750;
         }
 
@@ -49,11 +43,6 @@ namespace GUI
                 this.codigo = Convert.ToInt32(dgvDados.Rows[e.RowIndex].Cells[0].Value);
                 this.Close();
             }
-        }
-
-        private void dgvDados_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }
