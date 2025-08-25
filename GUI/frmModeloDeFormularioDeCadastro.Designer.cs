@@ -140,10 +140,12 @@
             ClientSize = new Size(800, 450);
             Controls.Add(pnBotoes);
             Controls.Add(pnDados);
+            KeyPreview = true;
             Name = "frmModeloDeFormularioDeCadastro";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Modelo de formulário de cadastro";
             Load += frmModeloDeFormularioDeCadastro_Load;
+            KeyDown += frmModeloDeFormularioDeCadastro_KeyDown;
             pnBotoes.ResumeLayout(false);
             ResumeLayout(false);
         }
