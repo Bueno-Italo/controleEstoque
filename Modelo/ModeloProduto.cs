@@ -29,7 +29,23 @@ namespace Modelo
             this.ProCod = pro_cod;
             this.ProNome = pro_nome;
             this.ProDescricao = pro_descricao;
-            //this.CarregaImagem(pro_foto);
+            this.carregaImagem(pro_foto);
+            this.ProValorPago = pro_valorpago;
+            this.ProValorVenda = pro_valorvenda;
+            this.ProQtde = pro_qtde;
+            this.UmedCod = umed_cod;
+            this.CatCod = cat_cod;
+            this.ScatCod = scat_cod;
+        }
+
+        public ModeloProduto(int pro_cod, String pro_nome, String pro_descricao,
+            Byte[] pro_foto, Double pro_valorpago, Double pro_valorvenda, Double pro_qtde,
+            int umed_cod, int cat_cod, int scat_cod)
+        {
+            this.ProCod = pro_cod;
+            this.ProNome = pro_nome;
+            this.ProDescricao = pro_descricao;
+            this.ProFoto = pro_foto;
             this.ProValorPago = pro_valorpago;
             this.ProValorVenda = pro_valorvenda;
             this.ProQtde = pro_qtde;
@@ -82,6 +98,25 @@ namespace Modelo
         {
             get { return this._pro_foto; }
             set { this._pro_foto = value; }
+        }
+
+        public void carregaImagem(String imgCaminho)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(imgCaminho))
+                    return;
+
+                FileInfo arqImagem = new FileInfo(imgCaminho);
+                FileStream fs = new FileStream(imgCaminho, FileMode.Open, FileAccess.Read, FileShare.Read);
+                this.ProFoto = new byte[Convert.ToInt32(arqImagem.Length)];
+                int iByteRead = fs.Read(this.ProFoto, 0, Convert.ToInt32(arqImagem.Length));
+                fs.Close();
+            }
+            catch (Exception ex) 
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         private Double _pro_valorpago;
