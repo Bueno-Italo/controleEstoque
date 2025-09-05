@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadastroProduto));
             label1 = new Label();
             label2 = new Label();
             txtCodigo = new TextBox();
@@ -47,14 +48,14 @@
             cbCategoria = new ComboBox();
             cbSubCategoria = new ComboBox();
             panel1 = new Panel();
+            pbFoto = new PictureBox();
             label10 = new Label();
             btLoFoto = new Button();
             btRmFoto = new Button();
-            pictureBox1 = new PictureBox();
             pnDados.SuspendLayout();
             pnBotoes.SuspendLayout();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbFoto).BeginInit();
             SuspendLayout();
             // 
             // pnDados
@@ -82,6 +83,10 @@
             pnDados.Controls.Add(label2);
             pnDados.Controls.Add(label1);
             pnDados.Size = new Size(776, 334);
+            // 
+            // btInserir
+            // 
+            btInserir.Click += btInserir_Click;
             // 
             // label1
             // 
@@ -157,6 +162,8 @@
             txtQtde.Name = "txtQtde";
             txtQtde.Size = new Size(132, 23);
             txtQtde.TabIndex = 8;
+            txtQtde.KeyPress += txtQtde_KeyPress;
+            txtQtde.Leave += txtQtde_Leave;
             // 
             // txtValorPago
             // 
@@ -164,6 +171,8 @@
             txtValorPago.Name = "txtValorPago";
             txtValorPago.Size = new Size(132, 23);
             txtValorPago.TabIndex = 9;
+            txtValorPago.KeyPress += txtValorPago_KeyPress;
+            txtValorPago.Leave += txtValorPago_Leave;
             // 
             // label6
             // 
@@ -181,6 +190,8 @@
             txtValorVenda.Name = "txtValorVenda";
             txtValorVenda.Size = new Size(140, 23);
             txtValorVenda.TabIndex = 11;
+            txtValorVenda.KeyPress += txtValorVenda_KeyPress;
+            txtValorVenda.Leave += txtValorVenda_Leave;
             // 
             // label7
             // 
@@ -238,11 +249,21 @@
             // panel1
             // 
             panel1.BorderStyle = BorderStyle.Fixed3D;
-            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(pbFoto);
             panel1.Location = new Point(347, 36);
             panel1.Name = "panel1";
             panel1.Size = new Size(397, 221);
             panel1.TabIndex = 18;
+            // 
+            // pbFoto
+            // 
+            pbFoto.Dock = DockStyle.Fill;
+            pbFoto.Location = new Point(0, 0);
+            pbFoto.Name = "pbFoto";
+            pbFoto.Size = new Size(393, 217);
+            pbFoto.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbFoto.TabIndex = 0;
+            pbFoto.TabStop = false;
             // 
             // label10
             // 
@@ -256,6 +277,8 @@
             // btLoFoto
             // 
             btLoFoto.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btLoFoto.Image = (Image)resources.GetObject("btLoFoto.Image");
+            btLoFoto.ImageAlign = ContentAlignment.TopCenter;
             btLoFoto.Location = new Point(394, 265);
             btLoFoto.Name = "btLoFoto";
             btLoFoto.Size = new Size(114, 62);
@@ -267,23 +290,15 @@
             // btRmFoto
             // 
             btRmFoto.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btRmFoto.Image = (Image)resources.GetObject("btRmFoto.Image");
+            btRmFoto.ImageAlign = ContentAlignment.TopCenter;
             btRmFoto.Location = new Point(595, 265);
             btRmFoto.Name = "btRmFoto";
-            btRmFoto.Size = new Size(103, 64);
+            btRmFoto.Size = new Size(114, 62);
             btRmFoto.TabIndex = 21;
             btRmFoto.Text = "Remover Foto";
             btRmFoto.TextAlign = ContentAlignment.BottomCenter;
             btRmFoto.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Dock = DockStyle.Fill;
-            pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(393, 217);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
             // 
             // frmCadastroProduto
             // 
@@ -292,11 +307,12 @@
             ClientSize = new Size(800, 450);
             Name = "frmCadastroProduto";
             Text = "Cadastro de produto";
+            Load += frmCadastroProduto_Load;
             pnDados.ResumeLayout(false);
             pnDados.PerformLayout();
             pnBotoes.ResumeLayout(false);
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbFoto).EndInit();
             ResumeLayout(false);
         }
 
@@ -324,6 +340,6 @@
         private Button btLoFoto;
         private Label label10;
         private Panel panel1;
-        private PictureBox pictureBox1;
+        private PictureBox pbFoto;
     }
 }
