@@ -1,4 +1,8 @@
-﻿using System;
+﻿using BBL;
+using DAL;
+using GUI;
+using Modelo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -48,6 +52,23 @@ namespace GUI
         private void frmCadastroProduto_Load(object sender, EventArgs e)
         {
             this.alteraBotoes(1);
+
+            //combo da categoria
+            DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+            BLLCategoria bll = new BLLCategoria(cx);
+            cbCategoria.DataSource = bll.Localizar("");
+            cbCategoria.DisplayMember = "cat_nome";
+            cbCategoria.ValueMember = "cat_cod";
+            //combo da subcategoria
+            BLLSubCategoria sbll = new BLLSubCategoria(cx);
+            cbSubCategoria.DataSource = sbll.LocalizarPorCategoria((int) cbCategoria.SelectedValue);
+            cbSubCategoria.DisplayMember = "scat_nome";
+            cbSubCategoria.ValueMember = "scat_cod";
+            //combo und medida
+           // BLLUnidadeDeMedida ubll = new BLLUnidadeDeMedida(cx);
+            //cbUnd.DataSource = ubll.Localizar("");
+            //cbUnd.DisplayMember = "umed_nome";
+            //cbUnd.ValueMember = "umed_cod";
         }
 
         private void txtValorVenda_KeyPress(object sender, KeyPressEventArgs e)
@@ -165,6 +186,12 @@ namespace GUI
                 }
                 else e.Handled = true;
             }
+        }
+
+        private void btAlterar_Click(object sender, EventArgs e)
+        {
+            this.operacao = "alterar";
+            this.alteraBotoes(2);
         }
     }
 }

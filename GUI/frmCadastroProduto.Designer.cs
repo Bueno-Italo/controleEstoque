@@ -84,6 +84,10 @@
             pnDados.Controls.Add(label1);
             pnDados.Size = new Size(776, 334);
             // 
+            // btAlterar
+            // 
+            btAlterar.Click += btAlterar_Click;
+            // 
             // btInserir
             // 
             btInserir.Click += btInserir_Click;

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -95,6 +96,16 @@ namespace DAL
             SqlDataAdapter da = new SqlDataAdapter("select sc.scat_cod, sc.scat_nome, sc.cat_cod, c.cat_nome " +
                 " from subcategoria sc inner join categoria c on sc.cat_cod = c.cat_cod where scat_nome like '%" +
                 valor + "%'", conexao.StringConexao);
+            da.Fill(tabela);
+            return tabela;
+        }
+
+        public DataTable LocalizarPorCategoria(int categoria)
+        {
+            DataTable tabela = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select sc.scat_cod, sc.scat_nome, sc.cat_cod, c.cat_nome " +
+                " from subcategoria sc inner join categoria c on sc.cat_cod = c.cat_cod where sc.cat_cod = " + 
+                categoria.ToString(), conexao.StringConexao);
             da.Fill(tabela);
             return tabela;
         }
