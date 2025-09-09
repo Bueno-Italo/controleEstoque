@@ -291,6 +291,7 @@
             btLoFoto.Text = "Carregar Foto";
             btLoFoto.TextAlign = ContentAlignment.BottomCenter;
             btLoFoto.UseVisualStyleBackColor = true;
+            btLoFoto.Click += btLoFoto_Click;
             // 
             // btRmFoto
             // 
@@ -304,6 +305,7 @@
             btRmFoto.Text = "Remover Foto";
             btRmFoto.TextAlign = ContentAlignment.BottomCenter;
             btRmFoto.UseVisualStyleBackColor = true;
+            btRmFoto.Click += btRmFoto_Click;
             // 
             // frmCadastroProduto
             // 
