@@ -241,6 +241,7 @@
             cbCategoria.Name = "cbCategoria";
             cbCategoria.Size = new Size(132, 23);
             cbCategoria.TabIndex = 16;
+            cbCategoria.SelectedIndexChanged += cbCategoria_SelectedIndexChanged;
             // 
             // cbSubCategoria
             // 

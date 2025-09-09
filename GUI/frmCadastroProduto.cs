@@ -52,23 +52,31 @@ namespace GUI
         private void frmCadastroProduto_Load(object sender, EventArgs e)
         {
             this.alteraBotoes(1);
-
             //combo da categoria
             DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
             BLLCategoria bll = new BLLCategoria(cx);
             cbCategoria.DataSource = bll.Localizar("");
             cbCategoria.DisplayMember = "cat_nome";
             cbCategoria.ValueMember = "cat_cod";
-            //combo da subcategoria
-            BLLSubCategoria sbll = new BLLSubCategoria(cx);
-            cbSubCategoria.DataSource = sbll.LocalizarPorCategoria((int) cbCategoria.SelectedValue);
-            cbSubCategoria.DisplayMember = "scat_nome";
-            cbSubCategoria.ValueMember = "scat_cod";
+            //cbCategoria.AutoCompleteMode = AutoCompleteMode.Suggest;
+            //cbCategoria.AutoCompleteSource = AutoCompleteSource.ListItems;
+            try
+            {
+                //combo da subcategoria
+                BLLSubCategoria sbll = new BLLSubCategoria(cx);
+                cbSubCategoria.DataSource = sbll.LocalizarPorCategoria((int)cbCategoria.SelectedValue);
+                cbSubCategoria.DisplayMember = "scat_nome";
+                cbSubCategoria.ValueMember = "scat_cod";
+            }
+            catch
+            {
+                //MessageBox.Show("Cadastre uma categoria");
+            }
             //combo und medida
-           // BLLUnidadeDeMedida ubll = new BLLUnidadeDeMedida(cx);
-            //cbUnd.DataSource = ubll.Localizar("");
-            //cbUnd.DisplayMember = "umed_nome";
-            //cbUnd.ValueMember = "umed_cod";
+            BLLUnidadeDeMedida ubll = new BLLUnidadeDeMedida(cx);
+            cbUnd.DataSource = ubll.Localizar("");
+            cbUnd.DisplayMember = "umed_nome";
+            cbUnd.ValueMember = "umed_cod";
         }
 
         private void txtValorVenda_KeyPress(object sender, KeyPressEventArgs e)
@@ -192,6 +200,25 @@ namespace GUI
         {
             this.operacao = "alterar";
             this.alteraBotoes(2);
+        }
+
+        private void cbCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+            //combo da categoria
+            try
+            {
+                cbSubCategoria.Text = "";
+                //combo da subcategoria
+                BLLSubCategoria sbll = new BLLSubCategoria(cx);
+                cbSubCategoria.DataSource = sbll.LocalizarPorCategoria((int)cbCategoria.SelectedValue);
+                cbSubCategoria.DisplayMember = "scat_nome";
+                cbSubCategoria.ValueMember = "scat_cod";
+            }
+            catch
+            {
+                //MessageBox.Show("Cadastre uma categoria");
+            }
         }
     }
 }
