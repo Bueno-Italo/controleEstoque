@@ -100,6 +100,10 @@
             // 
             btAlterar.Click += btAlterar_Click;
             // 
+            // btLocalizar
+            // 
+            btLocalizar.Click += btLocalizar_Click;
+            // 
             // btInserir
             // 
             btInserir.Click += btInserir_Click;

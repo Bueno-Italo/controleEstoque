@@ -95,7 +95,7 @@ namespace DAL
         public DataTable Localizar(String valor)
         {
             DataTable tabela = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("Select * from Produto qhere pro_nome like '%" +
+            SqlDataAdapter da = new SqlDataAdapter("Select * from Produto where pro_nome like '%" +
                 valor + "%'", conexao.StringConexao);
             da.Fill(tabela);
             return tabela;

@@ -317,5 +317,27 @@ namespace GUI
                 this.alteraBotoes(3);
             }
         }
+
+        private void btLocalizar_Click(object sender, EventArgs e)
+        {
+            //frmConsultaCategoria f = new frmConsultaCategoria();
+            //f.ShowDialog();
+
+            //if (f.codigo != 0)
+            //{
+            //    DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+            //    BLLCategoria bll = new BLLCategoria(cx);
+            //    ModeloCategoria modelo = bll.CarregaModeloCategoria(f.codigo);
+            //    txtCodigo.Text = modelo.CatCod.ToString();
+            //    txtNome.Text = modelo.CatNome;
+            //    alteraBotoes(3);
+            //}
+            //else
+            //{
+            //    this.LimpaTela();
+            //    this.alteraBotoes(1);
+            //}
+            //f.Dispose();
+        }
     }
 }
