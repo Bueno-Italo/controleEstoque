@@ -49,6 +49,13 @@ namespace GUI
             dgvDados.Columns[8].HeaderText = "Categoria";
             dgvDados.Columns[8].Width = 50;
             dgvDados.Columns[9].HeaderText = "Subcategoria";
+            dgvDados.Columns[9].Width = 50;
+            dgvDados.Columns[10].HeaderText = "Nome da Unidade de Medida";
+            dgvDados.Columns[10].Width = 50;
+            dgvDados.Columns[11].HeaderText = "Nome da Categoria";
+            dgvDados.Columns[11].Width = 50;
+            dgvDados.Columns[12].HeaderText = "Nome da SubCategoria";
+            dgvDados.Columns[12].Width = 50;
         }
     }
 }
