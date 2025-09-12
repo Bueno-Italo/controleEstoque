@@ -92,6 +92,10 @@
             // 
             btSalvar.Click += btSalvar_Click;
             // 
+            // btExcluir
+            // 
+            btExcluir.Click += btExcluir_Click;
+            // 
             // btAlterar
             // 
             btAlterar.Click += btAlterar_Click;
