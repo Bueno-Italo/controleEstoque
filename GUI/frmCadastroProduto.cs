@@ -49,6 +49,17 @@ namespace GUI
             this.alteraBotoes(2);
         }
 
+        private void LimpaTela()
+        {
+            txtCodigo.Clear();
+            txtNome.Clear();
+            txtDescricao.Clear();
+            txtValorPago.Clear();
+            txtValorVenda.Clear();
+            txtQtde.Clear();
+            pbFoto.Image = null;
+        }
+
         private void frmCadastroProduto_Load(object sender, EventArgs e)
         {
             this.alteraBotoes(1);
@@ -236,6 +247,54 @@ namespace GUI
         {
             this.foto = "";
             pbFoto.Image = null;
+        }
+
+        private void btCancelar_Click(object sender, EventArgs e)
+        {
+            this.alteraBotoes(1);
+            this.LimpaTela();
+        }
+
+        private void btSalvar_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                //Leitura
+                ModeloProduto modelo = new ModeloProduto();
+                modelo.ProNome = txtNome.Text;
+                modelo.ProDescricao = txtDescricao.Text;
+                modelo.ProValorPago = Convert.ToDouble(txtValorPago.Text);
+                modelo.ProValorVenda = Convert.ToDouble(txtValorVenda.Text);
+                modelo.ProQtde = Convert.ToDouble(txtQtde.Text);
+                modelo.UmedCod = Convert.ToInt32(cbUnd.SelectedValue);
+                modelo.ScatCod = Convert.ToInt32(cbSubCategoria.SelectedValue);
+                modelo.CatCod = Convert.ToInt32(cbCategoria.SelectedValue);
+                modelo.carregaImagem(this.foto);
+
+                //Objeto para gravar no DB
+                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+                BLLProduto bll = new BLLProduto(cx);
+
+                if (this.operacao == "inserir")
+                {
+                    bll.Incluir(modelo);
+                    MessageBox.Show("Cadastro efetuado: Código " + modelo.ProCod.ToString());
+                }
+                else
+                {
+                    //alterar categoria
+                    modelo.ProCod = Convert.ToInt32(txtCodigo.Text);
+                    bll.Alterar(modelo);
+                    MessageBox.Show("Cadastro alterado");
+                }
+                this.LimpaTela();
+                this.alteraBotoes(1);
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
         }
     }
 }

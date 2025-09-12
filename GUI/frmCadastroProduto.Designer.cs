@@ -84,6 +84,14 @@
             pnDados.Controls.Add(label1);
             pnDados.Size = new Size(776, 334);
             // 
+            // btCancelar
+            // 
+            btCancelar.Click += btCancelar_Click;
+            // 
+            // btSalvar
+            // 
+            btSalvar.Click += btSalvar_Click;
+            // 
             // btAlterar
             // 
             btAlterar.Click += btAlterar_Click;

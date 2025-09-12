@@ -23,7 +23,7 @@ namespace DAL
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = "insert into Produto (pro_nome, pro_descricao, pro_foto,  pro_valorpago, pro_valorvenda, pro_qtde,umed_cod , cat_cod, scat_cod) " +
-            "values (@nome,@descricao,@foto,@valorpago,@valorvenda,@qtde,@undmedcod,@catcod,@scatcod); select @@IDENTITY;";
+            "values (@nome,@descricao,@foto,@valorpago,@valorvenda,@qtde,@umed_cod,@catcod,@scatcod); select @@IDENTITY;";
             cmd.Parameters.AddWithValue("@nome", obj.ProNome);
             cmd.Parameters.AddWithValue("@descricao", obj.ProDescricao);
             cmd.Parameters.Add("@foto", System.Data.SqlDbType.Image);
@@ -40,7 +40,7 @@ namespace DAL
             cmd.Parameters.AddWithValue("@valorpago", obj.ProValorPago);
             cmd.Parameters.AddWithValue("@valorvenda", obj.ProValorVenda);
             cmd.Parameters.AddWithValue("@qtde", obj.ProQtde);
-            cmd.Parameters.AddWithValue("@undmedcod", obj.UmedCod);
+            cmd.Parameters.AddWithValue("@umed_cod", obj.UmedCod);
             cmd.Parameters.AddWithValue("@catcod", obj.CatCod);
             cmd.Parameters.AddWithValue("@scatcod", obj.ScatCod);
             conexao.Conectar();
