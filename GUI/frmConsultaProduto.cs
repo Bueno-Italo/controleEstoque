@@ -15,6 +15,7 @@ namespace GUI
 {
     public partial class frmConsultaProduto : Form
     {
+        public int codigo = 0;
         public frmConsultaProduto()
         {
             InitializeComponent();
@@ -41,21 +42,37 @@ namespace GUI
             dgvDados.Columns[4].HeaderText = "Valor Pago";
             dgvDados.Columns[4].Width = 50;
             dgvDados.Columns[5].HeaderText = "Valor de Venda";
-            dgvDados.Columns[5].Width = 50;
+            dgvDados.Columns[5].Width = 100;
             dgvDados.Columns[6].HeaderText = "Quantidade";
-            dgvDados.Columns[6].Width = 50;
+            dgvDados.Columns[6].Width = 100;
             dgvDados.Columns[7].HeaderText = "Unidade de Medida";
             dgvDados.Columns[7].Width = 50;
             dgvDados.Columns[8].HeaderText = "Categoria";
             dgvDados.Columns[8].Width = 50;
-            dgvDados.Columns[9].HeaderText = "Subcategoria";
+            dgvDados.Columns[9].HeaderText = "Sub categoria";
             dgvDados.Columns[9].Width = 50;
-            dgvDados.Columns[10].HeaderText = "Nome da Unidade de Medida";
-            dgvDados.Columns[10].Width = 50;
-            dgvDados.Columns[11].HeaderText = "Nome da Categoria";
-            dgvDados.Columns[11].Width = 50;
-            dgvDados.Columns[12].HeaderText = "Nome da SubCategoria";
-            dgvDados.Columns[12].Width = 50;
+            dgvDados.Columns[10].HeaderText = "Unidade de Medida";
+            dgvDados.Columns[10].Width = 100;
+            dgvDados.Columns[11].HeaderText = "Categoria";
+            dgvDados.Columns[11].Width = 100;
+            dgvDados.Columns[12].HeaderText = "SubCategoria";
+            dgvDados.Columns[12].Width = 100;
+
+            //oculta colunas
+            dgvDados.Columns["cat_cod"].Visible = false;
+            dgvDados.Columns["pro_valorpago"].Visible = false;
+            dgvDados.Columns["cat_cod"].Visible = false;
+            dgvDados.Columns["scat_cod"].Visible = false;
+            dgvDados.Columns["umed_cod"].Visible = false;
+        }
+
+        private void dgvDados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                this.codigo = Convert.ToInt32(dgvDados.Rows[e.RowIndex].Cells[0].Value);
+                this.Close();
+            }
         }
     }
 }

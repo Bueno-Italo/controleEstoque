@@ -46,6 +46,7 @@
             dgvDados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvDados.Size = new Size(776, 331);
             dgvDados.TabIndex = 7;
+            dgvDados.CellDoubleClick += dgvDados_CellDoubleClick;
             // 
             // btLocalizar
             // 

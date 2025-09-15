@@ -12,6 +12,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
+using System.IO;
+using Image = System.Drawing.Image;
+
 
 namespace GUI
 {
@@ -320,24 +323,44 @@ namespace GUI
 
         private void btLocalizar_Click(object sender, EventArgs e)
         {
-            //frmConsultaCategoria f = new frmConsultaCategoria();
-            //f.ShowDialog();
+            frmConsultaProduto f = new frmConsultaProduto();
+            f.ShowDialog();
 
-            //if (f.codigo != 0)
-            //{
-            //    DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-            //    BLLCategoria bll = new BLLCategoria(cx);
-            //    ModeloCategoria modelo = bll.CarregaModeloCategoria(f.codigo);
-            //    txtCodigo.Text = modelo.CatCod.ToString();
-            //    txtNome.Text = modelo.CatNome;
-            //    alteraBotoes(3);
-            //}
-            //else
-            //{
-            //    this.LimpaTela();
-            //    this.alteraBotoes(1);
-            //}
-            //f.Dispose();
+            if (f.codigo != 0)
+            {
+                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+                BLLProduto bll = new BLLProduto(cx);
+                ModeloProduto modelo = bll.CarregaModeloProduto(f.codigo);
+                txtCodigo.Text = modelo.CatCod.ToString();
+                //colocar dados na interface
+                txtCodigo.Text = modelo.ProCod.ToString();
+                txtDescricao.Text = modelo.ProDescricao.ToString();
+                txtNome.Text = modelo.ProNome;
+                txtQtde.Text = modelo.ProQtde.ToString();
+                txtValorPago.Text = modelo.ProValorPago.ToString();
+                txtValorVenda.Text = modelo.ProValorVenda.ToString();
+                cbCategoria.SelectedValue = modelo.CatCod;
+                cbSubCategoria.SelectedValue = modelo.ScatCod;
+                cbUnd.SelectedValue = modelo.UmedCod;
+                try
+                {
+                    MemoryStream ms = new MemoryStream(modelo.ProFoto);
+                    pbFoto.Image = Image.FromStream(ms);
+                }
+                catch
+                {
+
+                }
+
+                
+                alteraBotoes(3);
+            }
+            else
+            {
+                this.LimpaTela();
+                this.alteraBotoes(1);
+            }
+            f.Dispose();
         }
     }
 }
