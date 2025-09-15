@@ -260,10 +260,9 @@ namespace GUI
 
         private void btSalvar_Click(object sender, EventArgs e)
         {
-
             try
             {
-                //Leitura
+                //leitura dos dados
                 ModeloProduto modelo = new ModeloProduto();
                 modelo.ProNome = txtNome.Text;
                 modelo.ProDescricao = txtDescricao.Text;
@@ -271,23 +270,33 @@ namespace GUI
                 modelo.ProValorVenda = Convert.ToDouble(txtValorVenda.Text);
                 modelo.ProQtde = Convert.ToDouble(txtQtde.Text);
                 modelo.UmedCod = Convert.ToInt32(cbUnd.SelectedValue);
-                modelo.ScatCod = Convert.ToInt32(cbSubCategoria.SelectedValue);
                 modelo.CatCod = Convert.ToInt32(cbCategoria.SelectedValue);
-                modelo.carregaImagem(this.foto);
+                modelo.ScatCod = Convert.ToInt32(cbSubCategoria.SelectedValue);
 
-                //Objeto para gravar no DB
+                //obj para gravar os dados no banco
                 DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
                 BLLProduto bll = new BLLProduto(cx);
-
                 if (this.operacao == "inserir")
                 {
+                    //cadastrar uma Produto
+                    modelo.carregaImagem(this.foto);
                     bll.Incluir(modelo);
                     MessageBox.Show("Cadastro efetuado: Código " + modelo.ProCod.ToString());
+
                 }
                 else
                 {
-                    //alterar categoria
                     modelo.ProCod = Convert.ToInt32(txtCodigo.Text);
+                    //alterar um produto
+                    if (this.foto == "Foto Original")
+                    {
+                        ModeloProduto mt = bll.CarregaModeloProduto(modelo.ProCod);
+                        modelo.ProFoto = mt.ProFoto;
+                    }
+                    else
+                    {
+                        modelo.carregaImagem(this.foto);
+                    }
                     bll.Alterar(modelo);
                     MessageBox.Show("Cadastro alterado");
                 }
@@ -346,6 +355,7 @@ namespace GUI
                 {
                     MemoryStream ms = new MemoryStream(modelo.ProFoto);
                     pbFoto.Image = Image.FromStream(ms);
+                    this.foto = "Foto Original";
                 }
                 catch
                 {
