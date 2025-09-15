@@ -59,8 +59,10 @@ namespace GUI
             dgvDados.Columns[12].Width = 100;
 
             //oculta colunas
-            dgvDados.Columns["cat_cod"].Visible = false;
+            //oculta colunas
+            dgvDados.Columns["pro_foto"].Visible = false;
             dgvDados.Columns["pro_valorpago"].Visible = false;
+            dgvDados.Columns["cat_cod"].Visible = false;
             dgvDados.Columns["cat_cod"].Visible = false;
             dgvDados.Columns["scat_cod"].Visible = false;
             dgvDados.Columns["umed_cod"].Visible = false;

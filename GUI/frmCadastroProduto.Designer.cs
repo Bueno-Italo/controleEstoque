@@ -328,6 +328,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            //Enabled = false;
             Name = "frmCadastroProduto";
             Text = "Cadastro de produto";
             Load += frmCadastroProduto_Load;
