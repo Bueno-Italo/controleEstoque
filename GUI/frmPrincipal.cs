@@ -27,7 +27,30 @@ namespace GUI
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
+            try
+            {
+                // Lê as configurações do arquivo
+                StreamReader arquivo = new StreamReader("ConfiguracaoBanco.txt");
+                DadosDaConexao.servidor = arquivo.ReadLine();
+                DadosDaConexao.banco = arquivo.ReadLine();
+                arquivo.Close();
 
+                // Testa a conexão
+                using (SqlConnection conexao = new SqlConnection(DadosDaConexao.StringDeConexao))
+                {
+                    conexao.Open();
+                    conexao.Close();
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Erro SQL: " + ex.Message +
+                                "\n\nString de conexão usada:\n" + DadosDaConexao.StringDeConexao);
+            }
+            catch (Exception erros)
+            {
+                MessageBox.Show(erros.Message);
+            }
         }
 
         private void categoriaToolStripMenuItem_Click(object sender, EventArgs e)

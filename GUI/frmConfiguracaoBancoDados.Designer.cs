@@ -37,6 +37,7 @@
             txtUsuario = new TextBox();
             txtSenha = new TextBox();
             btSalvar = new Button();
+            btTestar = new Button();
             SuspendLayout();
             // 
             // label1
@@ -74,7 +75,7 @@
             label4.Size = new Size(39, 15);
             label4.TabIndex = 3;
             label4.Text = "Senha";
-            label4.Click += label4_Click;
+            //label4.Click += label4_Click;
             // 
             // txtServidor
             // 
@@ -107,19 +108,30 @@
             // 
             // btSalvar
             // 
-            btSalvar.Location = new Point(687, 310);
+            btSalvar.Location = new Point(687, 308);
             btSalvar.Name = "btSalvar";
-            btSalvar.Size = new Size(78, 21);
+            btSalvar.Size = new Size(78, 23);
             btSalvar.TabIndex = 8;
             btSalvar.Text = "Salvar";
             btSalvar.UseVisualStyleBackColor = true;
             btSalvar.Click += btSalvar_Click;
+            // 
+            // btTestar
+            // 
+            btTestar.Location = new Point(535, 308);
+            btTestar.Name = "btTestar";
+            btTestar.Size = new Size(123, 25);
+            btTestar.TabIndex = 9;
+            btTestar.Text = "Testar Conexão";
+            btTestar.UseVisualStyleBackColor = true;
+           //btTestar.Click += btTestar_Click;
             // 
             // frmConfiguracaoBancoDados
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(796, 350);
+            Controls.Add(btTestar);
             Controls.Add(btSalvar);
             Controls.Add(txtSenha);
             Controls.Add(txtUsuario);
@@ -148,5 +160,6 @@
         private TextBox txtUsuario;
         private TextBox txtSenha;
         private Button btSalvar;
+        private Button btTestar;
     }
 }

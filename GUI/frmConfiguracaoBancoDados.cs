@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 namespace GUI
@@ -17,26 +11,21 @@ namespace GUI
             InitializeComponent();
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btSalvar_Click(object sender, EventArgs e)
         {
             try
             {
+                // Cria/reescreve o arquivo com servidor e banco
                 StreamWriter arquivo = new StreamWriter("ConfiguracaoBanco.txt", false);
                 arquivo.WriteLine(txtServidor.Text);
                 arquivo.WriteLine(txtBanco.Text);
-                arquivo.WriteLine(txtUsuario.Text);
-                arquivo.WriteLine(txtSenha.Text);
                 arquivo.Close();
-                MessageBox.Show("Arquivo Atualizado com sucesso!");
+
+                MessageBox.Show("Configuração salva com sucesso!");
             }
             catch (Exception erro)
             {
-                MessageBox.Show(erro.Message);
+                MessageBox.Show("Erro ao salvar configuração: " + erro.Message);
             }
         }
 
@@ -44,16 +33,18 @@ namespace GUI
         {
             try
             {
-                StreamReader arquivo = new StreamReader("ConfiguracaoBanco.txt");
-                txtServidor.Text = arquivo.ReadLine();
-                txtBanco.Text = arquivo.ReadLine();
-                txtUsuario.Text = arquivo.ReadLine();
-                txtSenha.Text = arquivo.ReadLine();
-                arquivo.Close();
+                // Se o arquivo já existe, carrega os dados
+                if (File.Exists("ConfiguracaoBanco.txt"))
+                {
+                    StreamReader arquivo = new StreamReader("ConfiguracaoBanco.txt");
+                    txtServidor.Text = arquivo.ReadLine();
+                    txtBanco.Text = arquivo.ReadLine();
+                    arquivo.Close();
+                }
             }
             catch (Exception erro)
             {
-                MessageBox.Show(erro.Message);
+                MessageBox.Show("Erro ao carregar configuração: " + erro.Message);
             }
         }
     }
