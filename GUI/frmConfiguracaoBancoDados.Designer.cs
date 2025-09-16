@@ -107,18 +107,19 @@
             // 
             // btSalvar
             // 
-            btSalvar.Location = new Point(531, 346);
+            btSalvar.Location = new Point(687, 310);
             btSalvar.Name = "btSalvar";
             btSalvar.Size = new Size(78, 21);
             btSalvar.TabIndex = 8;
             btSalvar.Text = "Salvar";
             btSalvar.UseVisualStyleBackColor = true;
+            btSalvar.Click += btSalvar_Click;
             // 
             // frmConfiguracaoBancoDados
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(796, 350);
             Controls.Add(btSalvar);
             Controls.Add(txtSenha);
             Controls.Add(txtUsuario);
@@ -131,6 +132,7 @@
             Name = "frmConfiguracaoBancoDados";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Configuração do Banco de Dados";
+            Load += frmConfiguracaoBancoDados_Load;
             ResumeLayout(false);
             PerformLayout();
         }
