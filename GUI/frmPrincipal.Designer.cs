@@ -48,9 +48,13 @@
             movimentaçãoToolStripMenuItem = new ToolStripMenuItem();
             relatórioToolStripMenuItem = new ToolStripMenuItem();
             ferramentasToolStripMenuItem = new ToolStripMenuItem();
-            sobreToolStripMenuItem = new ToolStripMenuItem();
             confuguraçãToolStripMenuItem = new ToolStripMenuItem();
             backupDoBandoDeDadosToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator3 = new ToolStripSeparator();
+            calculadoraToolStripMenuItem = new ToolStripMenuItem();
+            explorerToolStripMenuItem = new ToolStripMenuItem();
+            blocoDeNotasToolStripMenuItem = new ToolStripMenuItem();
+            sobreToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -181,16 +185,10 @@
             // 
             // ferramentasToolStripMenuItem
             // 
-            ferramentasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { confuguraçãToolStripMenuItem, backupDoBandoDeDadosToolStripMenuItem });
+            ferramentasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { confuguraçãToolStripMenuItem, backupDoBandoDeDadosToolStripMenuItem, toolStripSeparator3, calculadoraToolStripMenuItem, explorerToolStripMenuItem, blocoDeNotasToolStripMenuItem });
             ferramentasToolStripMenuItem.Name = "ferramentasToolStripMenuItem";
             ferramentasToolStripMenuItem.Size = new Size(84, 20);
             ferramentasToolStripMenuItem.Text = "Ferramentas";
-            // 
-            // sobreToolStripMenuItem
-            // 
-            sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
-            sobreToolStripMenuItem.Size = new Size(49, 20);
-            sobreToolStripMenuItem.Text = "Sobre";
             // 
             // confuguraçãToolStripMenuItem
             // 
@@ -204,6 +202,38 @@
             backupDoBandoDeDadosToolStripMenuItem.Name = "backupDoBandoDeDadosToolStripMenuItem";
             backupDoBandoDeDadosToolStripMenuItem.Size = new Size(252, 22);
             backupDoBandoDeDadosToolStripMenuItem.Text = "Backup do Bando de Dados";
+            // 
+            // toolStripSeparator3
+            // 
+            toolStripSeparator3.Name = "toolStripSeparator3";
+            toolStripSeparator3.Size = new Size(249, 6);
+            // 
+            // calculadoraToolStripMenuItem
+            // 
+            calculadoraToolStripMenuItem.Name = "calculadoraToolStripMenuItem";
+            calculadoraToolStripMenuItem.Size = new Size(252, 22);
+            calculadoraToolStripMenuItem.Text = "Calculadora";
+            calculadoraToolStripMenuItem.Click += calculadoraToolStripMenuItem_Click;
+            // 
+            // explorerToolStripMenuItem
+            // 
+            explorerToolStripMenuItem.Name = "explorerToolStripMenuItem";
+            explorerToolStripMenuItem.Size = new Size(252, 22);
+            explorerToolStripMenuItem.Text = "Explorer";
+            explorerToolStripMenuItem.Click += explorerToolStripMenuItem_Click;
+            // 
+            // blocoDeNotasToolStripMenuItem
+            // 
+            blocoDeNotasToolStripMenuItem.Name = "blocoDeNotasToolStripMenuItem";
+            blocoDeNotasToolStripMenuItem.Size = new Size(252, 22);
+            blocoDeNotasToolStripMenuItem.Text = "Bloco de Notas";
+            blocoDeNotasToolStripMenuItem.Click += blocoDeNotasToolStripMenuItem_Click;
+            // 
+            // sobreToolStripMenuItem
+            // 
+            sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
+            sobreToolStripMenuItem.Size = new Size(49, 20);
+            sobreToolStripMenuItem.Text = "Sobre";
             // 
             // frmPrincipal
             // 
@@ -247,5 +277,9 @@
         private ToolStripMenuItem fornecedorToolStripMenuItem1;
         private ToolStripMenuItem confuguraçãToolStripMenuItem;
         private ToolStripMenuItem backupDoBandoDeDadosToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator3;
+        private ToolStripMenuItem calculadoraToolStripMenuItem;
+        private ToolStripMenuItem explorerToolStripMenuItem;
+        private ToolStripMenuItem blocoDeNotasToolStripMenuItem;
     }
 }
