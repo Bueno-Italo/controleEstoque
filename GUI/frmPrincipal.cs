@@ -129,5 +129,12 @@ namespace GUI
         {
             System.Diagnostics.Process.Start("notepad");
         }
+
+        private void backupDoBandoDeDadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmBackupBancoDeDados f = new frmBackupBancoDeDados();
+            f.ShowDialog();
+            f.Dispose();
+        }
     }
 }

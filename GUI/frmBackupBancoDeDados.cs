@@ -45,5 +45,31 @@ namespace GUI
                 MessageBox.Show(erro.Message);
             }
         }
+
+        private void btRestaurar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog d = new OpenFileDialog();
+                d.Filter = "Backup Files|*.bak";
+                d.ShowDialog();
+                if (d.FileName != "")
+                {
+                    String nomeBanco = DadosDaConexao.banco;
+                    String localBackup = d.FileName;
+
+                    // Usa Integrated Security (sem usuário/senha)
+                    String conexao = @"Data Source=" + DadosDaConexao.servidor +
+                                     ";Initial Catalog=master;" +
+                                     "Integrated Security=True;TrustServerCertificate=True;";
+                    SQLServerBackup.RestauraDatabase(conexao, nomeBanco, d.FileName);
+                    MessageBox.Show("Backup restaurado com sucesso!!!!");
+                }
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
     }
 }

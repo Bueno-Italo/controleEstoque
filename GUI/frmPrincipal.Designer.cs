@@ -202,6 +202,7 @@
             backupDoBandoDeDadosToolStripMenuItem.Name = "backupDoBandoDeDadosToolStripMenuItem";
             backupDoBandoDeDadosToolStripMenuItem.Size = new Size(252, 22);
             backupDoBandoDeDadosToolStripMenuItem.Text = "Backup do Bando de Dados";
+            backupDoBandoDeDadosToolStripMenuItem.Click += backupDoBandoDeDadosToolStripMenuItem_Click;
             // 
             // toolStripSeparator3
             // 

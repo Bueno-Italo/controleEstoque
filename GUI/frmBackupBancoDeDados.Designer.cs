@@ -50,6 +50,7 @@
             btRestaurar.TabIndex = 3;
             btRestaurar.Text = "Restaurar o Bando de Dados";
             btRestaurar.UseVisualStyleBackColor = true;
+            btRestaurar.Click += btRestaurar_Click;
             // 
             // frmBackupBancoDeDados
             // 
