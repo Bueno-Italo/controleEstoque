@@ -33,17 +33,17 @@ namespace GUI
 
         private void btLocalizar_Click(object sender, EventArgs e)
         {
-            /*
-                frmConsultaCategoria f = new frmConsultaCategoria();
+
+            frmConsultaTipoPagamento f = new frmConsultaTipoPagamento();
             f.ShowDialog();
 
             if (f.codigo != 0)
             {
                 DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-                BLLCategoria bll = new BLLCategoria(cx);
-                ModeloCategoria modelo = bll.CarregaModeloCategoria(f.codigo);
-                txtCodigo.Text = modelo.CatCod.ToString();
-                txtNome.Text = modelo.CatNome;
+                BLLTipoPagamento bll = new BLLTipoPagamento(cx);
+                ModeloTipoPagamento modelo = bll.CarregaModeloTipoPagamento(f.codigo);
+                txtCodigo.Text = modelo.TpaCod.ToString();
+                txtNome.Text = modelo.TpaNome;
                 alteraBotoes(3);
             }
             else
@@ -51,8 +51,8 @@ namespace GUI
                 this.LimpaTela();
                 this.alteraBotoes(1);
             }
-            f.Dispose();             
-             */
+            f.Dispose();
+
         }
 
         private void btAlterar_Click(object sender, EventArgs e)

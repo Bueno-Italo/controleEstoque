@@ -52,7 +52,7 @@ namespace BBL
 
         public DataTable Localizar(String valor)
         {
-            DALCategoria DALobj = new DALCategoria(conexao);
+            DALTipoPagamento DALobj = new DALTipoPagamento(conexao);
             return DALobj.Localizar(valor);
         }
 
