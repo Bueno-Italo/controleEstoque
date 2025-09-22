@@ -158,5 +158,17 @@ namespace GUI
             }
             f.Dispose();
         }
+
+        private void btAdd_Click(object sender, EventArgs e)
+        {
+            frmCadastroCategoria f = new frmCadastroCategoria();
+            f.ShowDialog();
+            f.Dispose();
+            DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+            BLLCategoria bll = new BLLCategoria(cx);
+            cbCatCod.DataSource = bll.Localizar("");
+            cbCatCod.DisplayMember = "cat_nome";
+            cbCatCod.ValueMember = "cat_cod";
+        }
     }
 }

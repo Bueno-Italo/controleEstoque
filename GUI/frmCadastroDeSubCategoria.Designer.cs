@@ -34,12 +34,14 @@
             label3 = new Label();
             txtScatCod = new TextBox();
             txtNome = new TextBox();
+            btAdd = new Button();
             pnDados.SuspendLayout();
             pnBotoes.SuspendLayout();
             SuspendLayout();
             // 
             // pnDados
             // 
+            pnDados.Controls.Add(btAdd);
             pnDados.Controls.Add(txtNome);
             pnDados.Controls.Add(txtScatCod);
             pnDados.Controls.Add(label3);
@@ -124,6 +126,16 @@
             txtNome.TabIndex = 5;
             txtNome.TextChanged += txtNome_TextChanged;
             // 
+            // btAdd
+            // 
+            btAdd.Location = new Point(401, 172);
+            btAdd.Name = "btAdd";
+            btAdd.Size = new Size(50, 22);
+            btAdd.TabIndex = 6;
+            btAdd.Text = "+";
+            btAdd.UseVisualStyleBackColor = true;
+            btAdd.Click += btAdd_Click;
+            // 
             // frmCadastroDeSubCategoria
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -146,5 +158,6 @@
         private TextBox txtNome;
         private TextBox txtScatCod;
         private Label label3;
+        private Button btAdd;
     }
 }
