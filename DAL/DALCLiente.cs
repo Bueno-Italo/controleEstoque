@@ -129,7 +129,7 @@ namespace DAL
             return modelo;
         }
 
-        public ModeloCliente CarregaModeloCliente(string cpfcnpj)
+        public ModeloCliente CarregaModeloCliente(string cpfcnpj) 
         {
             ModeloCliente modelo = new ModeloCliente();
             SqlCommand cmd = new SqlCommand();
