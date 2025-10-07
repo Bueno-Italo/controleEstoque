@@ -143,5 +143,12 @@ namespace GUI
             f.ShowDialog();
             f.Dispose();
         }
+
+        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadastroCliente f = new frmCadastroCliente();
+            f.ShowDialog();
+            f.Dispose();
+        }
     }
 }

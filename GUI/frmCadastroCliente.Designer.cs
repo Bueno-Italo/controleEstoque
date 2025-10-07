@@ -33,8 +33,8 @@
             txtCodigo = new TextBox();
             txtNome = new TextBox();
             groupBox1 = new GroupBox();
-            rbFisica = new RadioButton();
             rbJuridica = new RadioButton();
+            rbFisica = new RadioButton();
             lbRSocial = new Label();
             txrRSocial = new TextBox();
             lbCPFCNPJ = new Label();
@@ -97,6 +97,30 @@
             pnDados.Controls.Add(label1);
             pnDados.Paint += pnDados_Paint;
             // 
+            // btCancelar
+            // 
+            btCancelar.Click += btCancelar_Click;
+            // 
+            // btSalvar
+            // 
+            btSalvar.Click += btSalvar_Click;
+            // 
+            // btExcluir
+            // 
+            btExcluir.Click += btExcluir_Click;
+            // 
+            // btAlterar
+            // 
+            btAlterar.Click += btAlterar_Click;
+            // 
+            // btLocalizar
+            // 
+            btLocalizar.Click += btLocalizar_Click;
+            // 
+            // btInserir
+            // 
+            btInserir.Click += btInserir_Click_1;
+            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -140,6 +164,16 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Tipo do Cliente";
             // 
+            // rbJuridica
+            // 
+            rbJuridica.AutoSize = true;
+            rbJuridica.Location = new Point(220, 22);
+            rbJuridica.Name = "rbJuridica";
+            rbJuridica.Size = new Size(65, 19);
+            rbJuridica.TabIndex = 5;
+            rbJuridica.Text = "Juridica";
+            rbJuridica.UseVisualStyleBackColor = true;
+            // 
             // rbFisica
             // 
             rbFisica.AutoSize = true;
@@ -151,16 +185,7 @@
             rbFisica.TabStop = true;
             rbFisica.Text = "Fisica";
             rbFisica.UseVisualStyleBackColor = true;
-            // 
-            // rbJuridica
-            // 
-            rbJuridica.AutoSize = true;
-            rbJuridica.Location = new Point(220, 22);
-            rbJuridica.Name = "rbJuridica";
-            rbJuridica.Size = new Size(65, 19);
-            rbJuridica.TabIndex = 5;
-            rbJuridica.Text = "Juridica";
-            rbJuridica.UseVisualStyleBackColor = true;
+            rbFisica.CheckedChanged += rbFisica_CheckedChanged;
             // 
             // lbRSocial
             // 
@@ -309,7 +334,6 @@
             label8.Size = new Size(38, 15);
             label8.TabIndex = 21;
             label8.Text = "Bairro";
-            label8.Click += this.label8_Click;
             // 
             // txtEmail
             // 
@@ -366,6 +390,7 @@
             ClientSize = new Size(800, 450);
             Name = "frmCadastroCliente";
             Text = "Cadastro de Cliente";
+            Load += frmCadastroCliente_Load;
             pnDados.ResumeLayout(false);
             pnDados.PerformLayout();
             pnBotoes.ResumeLayout(false);

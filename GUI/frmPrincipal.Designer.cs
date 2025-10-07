@@ -37,6 +37,7 @@
             toolStripSeparator1 = new ToolStripSeparator();
             clienteToolStripMenuItem = new ToolStripMenuItem();
             fornecedorToolStripMenuItem = new ToolStripMenuItem();
+            tipoDePagamentoToolStripMenuItem = new ToolStripMenuItem();
             consultaToolStripMenuItem = new ToolStripMenuItem();
             categoriaToolStripMenuItem1 = new ToolStripMenuItem();
             subCategoriaToolStripMenuItem1 = new ToolStripMenuItem();
@@ -55,7 +56,6 @@
             explorerToolStripMenuItem = new ToolStripMenuItem();
             blocoDeNotasToolStripMenuItem = new ToolStripMenuItem();
             sobreToolStripMenuItem = new ToolStripMenuItem();
-            tipoDePagamentoToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -113,12 +113,20 @@
             clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
             clienteToolStripMenuItem.Size = new Size(180, 22);
             clienteToolStripMenuItem.Text = "Cliente";
+            clienteToolStripMenuItem.Click += clienteToolStripMenuItem_Click;
             // 
             // fornecedorToolStripMenuItem
             // 
             fornecedorToolStripMenuItem.Name = "fornecedorToolStripMenuItem";
             fornecedorToolStripMenuItem.Size = new Size(180, 22);
             fornecedorToolStripMenuItem.Text = "Fornecedor";
+            // 
+            // tipoDePagamentoToolStripMenuItem
+            // 
+            tipoDePagamentoToolStripMenuItem.Name = "tipoDePagamentoToolStripMenuItem";
+            tipoDePagamentoToolStripMenuItem.Size = new Size(180, 22);
+            tipoDePagamentoToolStripMenuItem.Text = "Tipo de Pagamento";
+            tipoDePagamentoToolStripMenuItem.Click += tipoDePagamentoToolStripMenuItem_Click;
             // 
             // consultaToolStripMenuItem
             // 
@@ -236,13 +244,6 @@
             sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
             sobreToolStripMenuItem.Size = new Size(49, 20);
             sobreToolStripMenuItem.Text = "Sobre";
-            // 
-            // tipoDePagamentoToolStripMenuItem
-            // 
-            tipoDePagamentoToolStripMenuItem.Name = "tipoDePagamentoToolStripMenuItem";
-            tipoDePagamentoToolStripMenuItem.Size = new Size(180, 22);
-            tipoDePagamentoToolStripMenuItem.Text = "Tipo de Pagamento";
-            tipoDePagamentoToolStripMenuItem.Click += tipoDePagamentoToolStripMenuItem_Click;
             // 
             // frmPrincipal
             // 
