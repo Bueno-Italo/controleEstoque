@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Ferramentas;
 
 namespace GUI
 {
@@ -88,36 +89,48 @@ namespace GUI
 
         private void btSalvar_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    //Leitura
-            //    ModeloCategoria modelo = new ModeloCategoria();
-            //    modelo.CatNome = txtNome.Text;
+            try
+            {
+                //Leitura
+                ModeloCliente modelo = new ModeloCliente();
+                modelo.CliNome = txtNome.Text;
+                modelo.CliRSocial = txrRSocial.Text;
+                modelo.CliCpfCnpj = txtCPFCNPJ.Text;
+                modelo.CliRgIe = txtRGIE.Text;
+                modelo.CliCep = txtCep.Text;
+                modelo.CliCidade = txtCidade.Text;
+                modelo.CliEstado = txtEstado.Text;
+                modelo.CliEndereco = txtRua.Text;
+                modelo.CliEndNumero = txtNumero.Text;
+                modelo.CliBairro = txtBairro.Text;
+                modelo.CliEmail = txtEmail.Text;
+                modelo.CliFone = txtFone.Text;
+                modelo.CliCelular = txtCelular.Text;
 
-            //    //Objeto para gravar no DB
-            //    DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-            //    BLLCategoria bll = new BLLCategoria(cx);
+                //Objeto para gravar no DB
+                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+                BLLCliente bll = new BLLCliente(cx);
 
-            //    if (this.operacao == "inserir")
-            //    {
-            //        bll.Incluir(modelo);
-            //        MessageBox.Show("Cadastro efetuado: Código " + modelo.CatCod.ToString());
-            //    }
+                if (this.operacao == "inserir")
+                {
+                    bll.Incluir(modelo);
+                    MessageBox.Show("Cadastro efetuado: Código " + modelo.CliCod.ToString());
+                }
 
-            //    else
-            //    {
-            //        //alterar categoria
-            //        modelo.CatCod = Convert.ToInt32(txtCodigo.Text);
-            //        bll.Alterar(modelo);
-            //        MessageBox.Show("Cadastro alterado");
-            //    }
-            //    this.LimpaTela();
-            //    this.alteraBotoes(1);
-            //}
-            //catch (Exception erro)
-            //{
-            //    MessageBox.Show(erro.Message);
-            //}
+                else
+                {
+                    //alterar categoria
+                    modelo.CliCod = Convert.ToInt32(txtCodigo.Text);
+                    bll.Alterar(modelo);
+                    MessageBox.Show("Cadastro alterado");
+                }
+                this.LimpaTela();
+                this.alteraBotoes(1);
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
         }
 
         private void btCancelar_Click(object sender, EventArgs e)
@@ -160,12 +173,12 @@ namespace GUI
 
         private void rbFisica_CheckedChanged(object sender, EventArgs e)
         {
-            if(rbFisica.Checked == true)
+            if (rbFisica.Checked == true)
             {
                 lbRSocial.Visible = false;
                 txrRSocial.Visible = false;
                 lbCPFCNPJ.Text = "CPF";
-                lbRGIE.Text = "RG"; 
+                lbRGIE.Text = "RG";
             }
             else
             {
@@ -173,6 +186,18 @@ namespace GUI
                 txrRSocial.Visible = true;
                 lbCPFCNPJ.Text = "CNPJ";
                 lbRGIE.Text = "IE";
+            }
+        }
+
+        private void frmCadastroCliente_Leave(object sender, EventArgs e)
+        {
+            if (BuscaEndereco.verificaCEP(txtCep.Text)==true)
+            {
+                txtBairro.Text = BuscaEndereco.bairro;
+                txtEstado.Text = BuscaEndereco.estado;
+                txtCidade.Text = BuscaEndereco.cidade;
+                txtRua.Text = BuscaEndereco.endereco;
+
             }
         }
     }

@@ -391,6 +391,7 @@
             Name = "frmCadastroCliente";
             Text = "Cadastro de Cliente";
             Load += frmCadastroCliente_Load;
+            Leave += frmCadastroCliente_Leave;
             pnDados.ResumeLayout(false);
             pnDados.PerformLayout();
             pnBotoes.ResumeLayout(false);
