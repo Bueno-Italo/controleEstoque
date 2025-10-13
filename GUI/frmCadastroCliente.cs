@@ -107,6 +107,15 @@ namespace GUI
                 modelo.CliFone = txtFone.Text;
                 modelo.CliCelular = txtCelular.Text;
 
+                if(rbFisica.Checked == true)
+                {
+                    modelo.CliTipo = 0; //Pessoa Fisica
+                }
+                else
+                {
+                    modelo.CliTipo = 1; //Juridica
+                }
+                 
                 //Objeto para gravar no DB
                 DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
                 BLLCliente bll = new BLLCliente(cx);
