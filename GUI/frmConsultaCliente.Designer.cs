@@ -33,8 +33,8 @@
             txtValor = new TextBox();
             label1 = new Label();
             groupBox1 = new GroupBox();
-            rbNome = new RadioButton();
             rbCPF = new RadioButton();
+            rbNome = new RadioButton();
             ((System.ComponentModel.ISupportInitialize)dgvDados).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -50,6 +50,7 @@
             dgvDados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvDados.Size = new Size(776, 308);
             dgvDados.TabIndex = 7;
+            dgvDados.CellDoubleClick += dgvDados_CellDoubleClick;
             // 
             // btLocalizar
             // 
@@ -59,6 +60,7 @@
             btLocalizar.TabIndex = 6;
             btLocalizar.Text = "Localizar";
             btLocalizar.UseVisualStyleBackColor = true;
+            btLocalizar.Click += btLocalizar_Click;
             // 
             // txtValor
             // 
@@ -87,6 +89,17 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Consultar Pelo:";
             // 
+            // rbCPF
+            // 
+            rbCPF.AutoSize = true;
+            rbCPF.Location = new Point(6, 67);
+            rbCPF.Name = "rbCPF";
+            rbCPF.Size = new Size(78, 19);
+            rbCPF.TabIndex = 1;
+            rbCPF.Text = "CPF/CNPJ";
+            rbCPF.TextAlign = ContentAlignment.MiddleCenter;
+            rbCPF.UseVisualStyleBackColor = true;
+            // 
             // rbNome
             // 
             rbNome.AutoSize = true;
@@ -98,17 +111,6 @@
             rbNome.TabStop = true;
             rbNome.Text = "Nome";
             rbNome.UseVisualStyleBackColor = true;
-            // 
-            // rbCPF
-            // 
-            rbCPF.AutoSize = true;
-            rbCPF.Location = new Point(6, 67);
-            rbCPF.Name = "rbCPF";
-            rbCPF.Size = new Size(78, 19);
-            rbCPF.TabIndex = 1;
-            rbCPF.Text = "CPF/CNPJ";
-            rbCPF.TextAlign = ContentAlignment.MiddleCenter;
-            rbCPF.UseVisualStyleBackColor = true;
             // 
             // frmConsultaCliente
             // 
@@ -123,6 +125,7 @@
             Name = "frmConsultaCliente";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Consulta de Cliente";
+            Load += frmConsultaCliente_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDados).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

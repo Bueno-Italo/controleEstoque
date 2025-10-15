@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Modelo;
 using DAL;
+using BBL;
 using System.Data;
 using System.ComponentModel.DataAnnotations;
 
@@ -85,6 +86,17 @@ namespace BBL
             return DALobj.Localizar(valor);
         }
 
+        public DataTable LocalizarPorNome(String valor)
+        {
+            DALCLiente DALobj = new DALCLiente(conexao);
+            return DALobj.LocalizarPorNome(valor);
+        }
+
+        public DataTable LocalizarPorCPFCNPJ(String valor)
+        {
+            DALCLiente DALobj = new DALCLiente(conexao);
+            return DALobj.LocalizarPorCPFCNPJ(valor);
+        }
         public ModeloCliente CarregaModeloCliente(int codigo)
         {
             DALCLiente DALobj = new DALCLiente(conexao);

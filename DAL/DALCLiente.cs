@@ -97,6 +97,20 @@ namespace DAL
             return tabela;
         }
 
+        public DataTable LocalizarPorNome(String valor)
+        {
+            return Localizar(valor);
+        }
+
+        public DataTable LocalizarPorCPFCNPJ(String valor)
+        {
+            DataTable tabela = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("Select * from cliente where cli_cpfcnpj like '%" +
+                valor + "%'", conexao.StringConexao);
+            da.Fill(tabela);
+            return tabela;
+        }
+
         public ModeloCliente CarregaModeloCliente(int codigo)
         {
             ModeloCliente modelo = new ModeloCliente();
