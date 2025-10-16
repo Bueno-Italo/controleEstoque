@@ -38,17 +38,40 @@ namespace GUI
 
         private void btLocalizar_Click(object sender, EventArgs e)
         {
-            /*
-                 frmConsultaCategoria f = new frmConsultaCategoria();
+
+            frmConsultaCliente f = new frmConsultaCliente();
             f.ShowDialog();
 
             if (f.codigo != 0)
             {
                 DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-                BLLCategoria bll = new BLLCategoria(cx);
-                ModeloCategoria modelo = bll.CarregaModeloCategoria(f.codigo);
-                txtCodigo.Text = modelo.CatCod.ToString();
-                txtNome.Text = modelo.CatNome;
+                BLLCliente bll = new BLLCliente(cx);
+                ModeloCliente modelo = bll.CarregaModeloCliente(f.codigo);
+                txtCodigo.Text = modelo.CliCod.ToString();
+
+                if (modelo.CliTipo == "Física")
+                {
+                    rbFisica.Checked = true;
+                }
+                else
+                {
+                   rbFisica.Checked= false;
+                }
+
+                txtNome.Text = modelo.CliNome;
+                txrRSocial.Text = modelo.CliRSocial;
+                txtCPFCNPJ.Text = modelo.CliCpfCnpj;
+                txtRGIE.Text = modelo.CliRgIe;
+                txtCep.Text = modelo.CliCep;
+                txtEstado.Text = modelo.CliEstado;
+                txtCidade.Text = modelo.CliCidade;
+                txtRua.Text = modelo.CliEndereco;
+                txtNumero.Text = modelo.CliEndNumero;
+                txtBairro.Text = modelo.CliBairro;
+                txtEmail.Text = modelo.CliEmail;
+                txtFone.Text = modelo.CliFone;
+                txtCelular.Text = modelo.CliCelular;
+
                 alteraBotoes(3);
             }
             else
@@ -57,7 +80,7 @@ namespace GUI
                 this.alteraBotoes(1);
             }
             f.Dispose();
-             */
+
         }
 
         private void btAlterar_Click(object sender, EventArgs e)
@@ -73,11 +96,11 @@ namespace GUI
                 DialogResult d = MessageBox.Show("Deseja excluir o registro?", "Aviso", MessageBoxButtons.YesNo);
                 if (d.ToString() == "Yes")
                 {
-                    // DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-                    //BLLCategoria bll = new BLLCategoria(cx);
-                    //bll.Excluir(Convert.ToInt32(txtCodigo));
-                    //this.LimpaTela();
-                    //this.alteraBotoes(1);
+                    DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+                    BLLCliente bll = new BLLCliente(cx);
+                    bll.Excluir(Convert.ToInt32(txtCodigo));
+                    this.LimpaTela();
+                    this.alteraBotoes(1);
                 }
             }
             catch
