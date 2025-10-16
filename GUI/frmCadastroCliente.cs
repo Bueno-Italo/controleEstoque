@@ -109,11 +109,12 @@ namespace GUI
 
                 if(rbFisica.Checked == true)
                 {
-                    modelo.CliTipo = 0; //Pessoa Fisica
+                    modelo.CliTipo = "Física"; //Pessoa Fisica
+                    modelo.CliRSocial = "";
                 }
                 else
                 {
-                    modelo.CliTipo = 1; //Juridica
+                    modelo.CliTipo = "Jurídica"; //Juridica
                 }
                  
                 //Objeto para gravar no DB
