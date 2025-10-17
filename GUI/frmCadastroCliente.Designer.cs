@@ -59,6 +59,7 @@
             label7 = new Label();
             txtFone = new TextBox();
             label10 = new Label();
+            lbValorIncorreto = new Label();
             pnDados.SuspendLayout();
             pnBotoes.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -66,6 +67,7 @@
             // 
             // pnDados
             // 
+            pnDados.Controls.Add(lbValorIncorreto);
             pnDados.Controls.Add(txtCelular);
             pnDados.Controls.Add(label7);
             pnDados.Controls.Add(txtFone);
@@ -220,6 +222,7 @@
             txtCPFCNPJ.Name = "txtCPFCNPJ";
             txtCPFCNPJ.Size = new Size(311, 23);
             txtCPFCNPJ.TabIndex = 8;
+            txtCPFCNPJ.Leave += txtCPFCNPJ_Leave;
             // 
             // lbRGIE
             // 
@@ -383,6 +386,17 @@
             label10.TabIndex = 27;
             label10.Text = "Telefone";
             // 
+            // lbValorIncorreto
+            // 
+            lbValorIncorreto.AutoSize = true;
+            lbValorIncorreto.ForeColor = Color.Red;
+            lbValorIncorreto.Location = new Point(599, 65);
+            lbValorIncorreto.Name = "lbValorIncorreto";
+            lbValorIncorreto.Size = new Size(84, 15);
+            lbValorIncorreto.TabIndex = 31;
+            lbValorIncorreto.Text = "Valor Incorreto";
+            lbValorIncorreto.Visible = false;
+            // 
             // frmCadastroCliente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -433,5 +447,6 @@
         private Label label7;
         private TextBox txtFone;
         private Label label10;
+        private Label lbValorIncorreto;
     }
 }

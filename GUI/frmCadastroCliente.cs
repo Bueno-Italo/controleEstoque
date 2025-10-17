@@ -55,7 +55,7 @@ namespace GUI
                 }
                 else
                 {
-                   rbFisica.Checked= false;
+                    rbFisica.Checked = false;
                 }
 
                 txtNome.Text = modelo.CliNome;
@@ -130,7 +130,7 @@ namespace GUI
                 modelo.CliFone = txtFone.Text;
                 modelo.CliCelular = txtCelular.Text;
 
-                if(rbFisica.Checked == true)
+                if (rbFisica.Checked == true)
                 {
                     modelo.CliTipo = "Física"; //Pessoa Fisica
                     modelo.CliRSocial = "";
@@ -139,7 +139,7 @@ namespace GUI
                 {
                     modelo.CliTipo = "Jurídica"; //Juridica
                 }
-                 
+
                 //Objeto para gravar no DB
                 DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
                 BLLCliente bll = new BLLCliente(cx);
@@ -224,13 +224,33 @@ namespace GUI
 
         private void frmCadastroCliente_Leave(object sender, EventArgs e)
         {
-            if (BuscaEndereco.verificaCEP(txtCep.Text)==true)
+            if (BuscaEndereco.verificaCEP(txtCep.Text) == true)
             {
                 txtBairro.Text = BuscaEndereco.bairro;
                 txtEstado.Text = BuscaEndereco.estado;
                 txtCidade.Text = BuscaEndereco.cidade;
                 txtRua.Text = BuscaEndereco.endereco;
 
+            }
+        }
+
+        private void txtCPFCNPJ_Leave(object sender, EventArgs e)
+        {
+            lbValorIncorreto.Visible = false;
+            if (rbFisica.Checked == true)
+            {
+                //cpf
+                if (Validacao.IsCpf(txtCPFCNPJ.Text) == false)
+                {
+                    lbValorIncorreto.Visible = true;
+                }
+            }
+            else
+            {
+                if (Validacao.IsCnpj(txtCPFCNPJ.Text) == false)
+                {
+                    lbValorIncorreto.Visible = true;
+                }
             }
         }
     }

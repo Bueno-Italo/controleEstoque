@@ -8,6 +8,7 @@ using DAL;
 using BBL;
 using System.Data;
 using System.ComponentModel.DataAnnotations;
+using Ferramentas;
 
 namespace BBL
 {
@@ -30,6 +31,22 @@ namespace BBL
             if(modelo.CliCpfCnpj.Trim().Length == 0)
             {
                 throw new Exception("O CPF/CNPJ do cliente é obrigatório");
+            }
+
+            if (modelo.CliTipo == "Física")
+            {
+                //cpf
+                if (Validacao.IsCpf(modelo.CliCpfCnpj) == false)
+                {
+                    throw new Exception("O CPF invalido");
+                }
+            }
+            else
+            {
+                if (Validacao.IsCnpj(modelo.CliCpfCnpj) == false)
+                {
+                    throw new Exception("O CNPJ invalido");
+                }
             }
 
             //Verificar CPF/CNPJ
