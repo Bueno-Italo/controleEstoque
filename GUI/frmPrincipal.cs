@@ -27,7 +27,30 @@ namespace GUI
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
+            try
+            {
+                // Lê as configurações do arquivo
+                StreamReader arquivo = new StreamReader("ConfiguracaoBanco.txt");
+                DadosDaConexao.servidor = arquivo.ReadLine();
+                DadosDaConexao.banco = arquivo.ReadLine();
+                arquivo.Close();
 
+                // Testa a conexão
+                using (SqlConnection conexao = new SqlConnection(DadosDaConexao.StringDeConexao))
+                {
+                    conexao.Open();
+                    conexao.Close();
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Erro SQL: " + ex.Message +
+                                "\n\nString de conexão usada:\n" + DadosDaConexao.StringDeConexao);
+            }
+            catch (Exception erros)
+            {
+                MessageBox.Show(erros.Message);
+            }
         }
 
         private void categoriaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -68,6 +91,69 @@ namespace GUI
         private void unidadeDeMedidaToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmConsultaUnidadeDeMedida f = new frmConsultaUnidadeDeMedida();
+            f.ShowDialog();
+            f.Dispose();
+        }
+
+        private void produtoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadastroProduto f = new frmCadastroProduto();
+            f.ShowDialog();
+            f.Dispose();
+        }
+        private void produtoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmConsultaProduto f = new frmConsultaProduto();
+            f.ShowDialog();
+            f.Dispose();
+        }
+
+        private void confuguraçãToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmConfiguracaoBancoDados f = new frmConfiguracaoBancoDados();
+            f.ShowDialog();
+            f.Dispose();
+        }
+
+        private void calculadoraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("calc");
+        }
+
+        private void explorerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("explorer");
+        }
+
+        private void blocoDeNotasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("notepad");
+        }
+
+        private void backupDoBandoDeDadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmBackupBancoDeDados f = new frmBackupBancoDeDados();
+            f.ShowDialog();
+            f.Dispose();
+        }
+
+        private void tipoDePagamentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadastroTipoPagamento f = new frmCadastroTipoPagamento();
+            f.ShowDialog();
+            f.Dispose();
+        }
+
+        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadastroCliente f = new frmCadastroCliente();
+            f.ShowDialog();
+            f.Dispose();
+        }
+
+        private void clienteToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmConsultaCliente f = new frmConsultaCliente();
             f.ShowDialog();
             f.Dispose();
         }
